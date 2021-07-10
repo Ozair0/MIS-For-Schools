@@ -1,0 +1,30 @@
+{
+  "name": "KIS",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "@nuxtjs/axios": "^5.13.5",
+    "core-js": "^3.9.1",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "nuxt": "^2.15.3",
+    "nuxt-fontawesome": "^0.4.0",
+    "vue-fragment": "^1.5.2"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.15.6",
+    "fibers": "^5.0.0",
+    "nodemon": "^2.0.7",
+    "sass": "^1.35.1",
+    "sass-loader": "^10.1.1"
+  }
+}

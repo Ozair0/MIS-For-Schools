@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/Roboto.woff') format('woff');
+}
+body {
+  margin: 0 !important;
+}
+* {
+  font-family: Roboto, serif;
+}
+.main_app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  transition: margin-left 0.5s;
+}
