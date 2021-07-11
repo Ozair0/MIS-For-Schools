@@ -53,15 +53,15 @@
 <!--        </div>-->
       </div>
       <div class="Footer_Opening_Hours">
-        <p>Opening Hours</p>
+        <p class="Footer_Opening_Hours_Title">Opening Hours</p>
         <ul>
-          <li>Saturday 8:00 am - 4.00 pm</li>
-          <li>Sunday 8:00 am - 4.00 pm</li>
-          <li>Monday 8:00 am - 4.00 pm</li>
-          <li>Tuesday 8:00 am - 4.00 pm</li>
-          <li>Wednesday 8:00 am - 4.00 pm</li>
-          <li>Thursday 8:00 am - 4.00 pm</li>
-          <li>Friday Closed</li>
+          <li><p>Saturday</p><p>8:00 am - 4.00 pm</p></li>
+          <li><p>Sunday</p><p>8:00 am - 4.00 pm</p></li>
+          <li><p>Monday</p><p>8:00 am - 4.00 pm</p></li>
+          <li><p>Tuesday</p><p>8:00 am - 4.00 pm</p></li>
+          <li><p>Wednesday</p><p>8:00 am - 4.00 pm</p></li>
+          <li><p>Thursday</p><p>8:00 am - 4.00 pm</p></li>
+          <li><p>Friday</p><p>Closed</p></li>
         </ul>
       </div>
     </div>
@@ -161,7 +161,7 @@ export default {
     }
     .Footer_Opening_Hours{
       margin-right: 80px;
-      p{
+      .Footer_Opening_Hours_Title{
         font-weight: bold;
         font-size: 20px;
       }
@@ -172,6 +172,14 @@ export default {
           color: #A8A8A8;
           border-bottom: 2px dashed #A8A8A8;
           margin-top: 15px;
+          display: flex;
+          justify-content: space-between;
+          p{
+            margin: 0;
+            &:not(:first-child) {
+              margin-left: 10px;
+            }
+          }
         }
       }
     }
