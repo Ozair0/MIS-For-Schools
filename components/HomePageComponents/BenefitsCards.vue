@@ -34,8 +34,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="B_Cards">
       <div class="B_Card">
         <div class="B_CardB">
           <div class="B_Card_Image B_Card_Image4"></div>
@@ -81,7 +79,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
     .B_Card {
