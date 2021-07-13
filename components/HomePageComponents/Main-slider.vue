@@ -8,7 +8,7 @@
       </div>
       <a href="#" class="H_Button">Enroll Your Child</a>
     </div>
-    <img class="H_image" src="/14.jpg" width="900px" alt="14" />
+    <img class="H_image" src="/14.jpg" alt="14" />
     <a href="#" class="H_Arr"><fa :icon="faChevronRight" color="#663695" /></a>
     <WhatKisOffer />
   </div>
@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss">
 .main-slider {
+  overflow-x: hidden;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -50,7 +51,8 @@ export default {
   .H_image {
     filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.25));
     border-radius: 9px;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     height: 360px;
     object-fit: cover;
   }

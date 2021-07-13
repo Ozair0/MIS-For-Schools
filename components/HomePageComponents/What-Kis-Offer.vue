@@ -17,6 +17,7 @@ export default {};
 </script>
 <style lang="scss">
 .W_KIS_Of {
+  overflow-x: hidden;
   background: #ffffff;
   box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04),
     0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),

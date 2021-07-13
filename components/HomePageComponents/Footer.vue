@@ -83,13 +83,14 @@ export default {
 
 <style lang="scss">
 .Main_Footer{
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   .Footer{
     display: flex;
     justify-content: space-between;
     background: #663695;
-    height: 400px;
+    height: max-content;
     padding-top: 30px;
     color: white;
     .Footer_Logo_Address{
@@ -178,6 +179,62 @@ export default {
             margin: 0;
             &:not(:first-child) {
               margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .Main_Footer{
+    .Footer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .Footer_Logo_Address{
+        margin: 0;
+      }
+      .Footer_Links{
+        margin: 30px 0 0;
+        .Footer_Links_Home{
+          margin-right: 25px;
+        }
+        .Footer_Links_Services{
+          margin-right: 25px;
+        }
+      }
+      .Footer_Opening_Hours{
+        margin: 20px 0 30px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .Main_Footer{
+    .Footer{
+      justify-content: space-around;
+      .Footer_Logo_Address{
+        margin: 0;
+      }
+      .Footer_Links{
+        margin: 30px 0 0;
+        .Footer_Links_Home{
+          margin-right: 25px;
+        }
+        .Footer_Links_Services{
+          margin-right: 25px;
+        }
+      }
+      .Footer_Opening_Hours{
+        margin: 20px 0 30px;
+        ul{
+          li{
+            p{
+              &:not(:first-child) {
+                margin-left: 65px;
+              }
             }
           }
         }

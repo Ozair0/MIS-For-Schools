@@ -33,12 +33,17 @@ export default {
 <style lang="scss">
 
 
-.Upper_Page {
-  background-color: #66cc00;
-  height: 500px;
-}
+
 .MainHome {
   display: flex;
   flex-direction: column;
+  .Upper_Page {
+    background-color: #66cc00;
+    height: auto;
+  }
+  .Bottom_Page{
+    overflow-x: hidden;
+  }
 }
+
 </style>
