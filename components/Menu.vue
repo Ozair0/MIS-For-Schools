@@ -21,7 +21,7 @@
       </a>
     </div>
     <div class="Menu_List" v-if="ScreenSize > 768">
-      <a href="/">Home</a>
+      <NuxtLink to="/">Home</NuxtLink>
       <a href="#" class="Fa_A Our_School"
         >Our School
         <fa :icon="faAngleDown" color="white" />
@@ -31,7 +31,9 @@
         <div class="Drop_Down_Menu_List">
           <div class="Drop_Down_Menu_List_Item D_Active">
             |
-            <a href="#" class="D_A_Active">About Kardan International School</a>
+            <NuxtLink to="/About" class="D_A_Active"
+              >About Kardan International School</NuxtLink
+            >
           </div>
           <div class="Drop_Down_Menu_List_Item">
             | <a href="#">Principal's Message</a>

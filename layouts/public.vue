@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import Footer from "~/components/HomePageComponents/Footer";
-import Menu from "~/components/HomePageComponents/Menu";
+import Footer from "~/components/Footer";
+import Menu from "~/components/Menu";
 
 export default {
   components: { Footer, Menu }

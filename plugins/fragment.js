@@ -1,3 +1,3 @@
 import Vue from "vue";
-import Fragment from "vue-fragment";
-Vue.use(Fragment.Plugin);
+import frag from "vue-frag";
+Vue.directive("frag", frag);

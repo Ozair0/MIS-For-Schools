@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div v-frag>
     <div class="Upper_Page">
       <MainSlider />
     </div>
@@ -7,17 +7,16 @@
       <Benefits />
       <AboutUS />
     </div>
-  </fragment>
+  </div>
 </template>
 
 <script>
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import Menu from "~/components/HomePageComponents/Menu.vue";
+import Menu from "~/components/Menu.vue";
 import MainSlider from "~/components/HomePageComponents/Main-slider";
 import Benefits from "~/components/HomePageComponents/Benefits";
 import AboutUS from "~/components/HomePageComponents/AboutUS";
-import Footer from "~/components/HomePageComponents/Footer";
-// import { Fragment } from "vue-fragment";
+import Footer from "~/components/Footer";
 export default {
   components: { Footer, AboutUS, Benefits, MainSlider, Menu },
   layout: "public",
