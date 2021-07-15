@@ -1,15 +1,13 @@
 <template>
-  <div class="MainHome">
+  <fragment>
     <div class="Upper_Page">
-      <Menu />
       <MainSlider />
     </div>
     <div class="Bottom_Page">
       <Benefits />
       <AboutUS />
     </div>
-    <Footer />
-  </div>
+  </fragment>
 </template>
 
 <script>
@@ -19,6 +17,7 @@ import MainSlider from "~/components/HomePageComponents/Main-slider";
 import Benefits from "~/components/HomePageComponents/Benefits";
 import AboutUS from "~/components/HomePageComponents/AboutUS";
 import Footer from "~/components/HomePageComponents/Footer";
+// import { Fragment } from "vue-fragment";
 export default {
   components: { Footer, AboutUS, Benefits, MainSlider, Menu },
   layout: "public",
@@ -31,23 +30,17 @@ export default {
 </script>
 
 <style lang="scss">
-.MainHome {
-  display: flex;
-  flex-direction: column;
-  .Upper_Page {
-    background-color: #66cc00;
-    height: auto;
-  }
-  .Bottom_Page {
-    overflow-x: hidden;
-  }
+.Upper_Page {
+  background-color: #66cc00;
+  height: auto;
+}
+.Bottom_Page {
+  overflow-x: hidden;
 }
 
 @media only screen and (max-width: 330px) {
-  .MainHome {
-    .Bottom_Page {
-      margin-top: 40px;
-    }
+  .Bottom_Page {
+    margin-top: 40px;
   }
 }
 </style>

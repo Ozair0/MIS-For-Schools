@@ -1,6 +1,22 @@
 <template>
-  <Nuxt />
+  <div class="MainHome">
+    <Menu />
+    <Nuxt />
+    <Footer />
+  </div>
 </template>
-<script></script>
+<script>
+import Footer from "~/components/HomePageComponents/Footer";
+import Menu from "~/components/HomePageComponents/Menu";
 
-<style></style>
+export default {
+  components: { Footer, Menu }
+};
+</script>
+
+<style lang="scss">
+.MainHome {
+  display: flex;
+  flex-direction: column;
+}
+</style>

@@ -133,7 +133,7 @@ export default {
   display: flex;
   justify-content: space-between;
   height: auto;
-
+  background-color: #66cc00;
   .Logo_Menu {
     margin-top: 17px;
     margin-left: 30px;
