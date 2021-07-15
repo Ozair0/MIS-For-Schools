@@ -21,7 +21,7 @@
 <script>
 import BenefitsCards from "~/components/HomePageComponents/BenefitsCards";
 export default {
-  components: { BenefitsCards },
+  components: { BenefitsCards }
 };
 </script>
 
@@ -67,6 +67,32 @@ export default {
       font-size: 20px;
       font-style: normal;
       font-weight: bold;
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .Benefits {
+    .B_Text {
+      flex-direction: column;
+      .B_Text_Body {
+        text-align: justify;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .Benefits {
+    margin-top: 230px;
+    width: 100vw;
+    .Ben_BTN {
+      margin-left: 10px;
+    }
+    .B_Text {
+      margin-left: 15px;
+      margin-right: 15px;
+      .B_Text_Body {
+        font-size: 14px;
+      }
     }
   }
 }

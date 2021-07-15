@@ -88,4 +88,39 @@ export default {};
     }
   }
 }
+@media only screen and (max-width: 1024px) {
+  .W_KIS_Of {
+    margin-top: 440px;
+    height: 150px;
+    .W_Text {
+      font-size: 23px;
+    }
+    .W_List {
+      margin-top: 15px;
+      .W_Item {
+        padding: 25px;
+        margin-left: 6px;
+        margin-right: 6px;
+        margin-top: 8px;
+      }
+      .W_Item_2 {
+        background-size: 42px 42px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .W_KIS_Of {
+    height: 200px;
+    .W_List {
+      flex-wrap: wrap;
+    }
+  }
+}
+@media only screen and (max-width: 330px) {
+  .W_KIS_Of {
+    height: auto;
+    max-height: 600px;
+  }
+}
 </style>

@@ -101,7 +101,7 @@
         padding: 15px 20px;
         .B_Card_Image {
           margin-right: 25px;
-          padding: 5px 45px;
+          padding: 5px 50px;
           border-radius: 100%;
           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
         }
@@ -140,6 +140,19 @@
             font-family: Roboto;
             font-style: normal;
             color: #a8a8a8;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 392px) {
+  .B_Cards_Column {
+    .B_Cards {
+      .B_Card {
+        .B_CardB {
+          .B_Card_Image {
+            padding: 5px 80px;
           }
         }
       }

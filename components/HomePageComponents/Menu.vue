@@ -4,7 +4,7 @@
       <a href="/">
         <svg
           class="KIS_Logo"
-          width="254"
+          width="230"
           height="91"
           viewBox="0 0 254 91"
           xmlns="http://www.w3.org/2000/svg"
