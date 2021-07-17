@@ -25,7 +25,7 @@
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 .About_Us {
   margin-top: 50px;
   margin-left: 100px;

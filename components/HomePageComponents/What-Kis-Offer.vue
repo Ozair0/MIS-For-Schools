@@ -15,7 +15,7 @@
 <script>
 export default {};
 </script>
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 .W_KIS_Of {
   overflow-x: hidden;
   background: #ffffff;

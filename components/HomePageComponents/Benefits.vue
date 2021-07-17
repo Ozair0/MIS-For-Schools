@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 .Benefits {
   margin-top: 200px;
   width: 75vw;

@@ -71,7 +71,7 @@
   </div>
 </template>
 <script></script>
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 .B_Cards_Column {
   display: flex;
   flex-direction: column;

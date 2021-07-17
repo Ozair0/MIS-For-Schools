@@ -36,19 +36,19 @@
             >
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <a href="#">Principal's Message</a>
+            | <NuxtLink to="/Principal-message">Principal's Message</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <a href="#">Our Vision and Mission</a>
+            | <NuxtLink to="/Our-vision">Our Vision and Mission</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <a href="#">Campus and Facilities</a>
+            | <NuxtLink to="#">Campus and Facilities</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <a href="#">School Cafeteria and Kitchen</a>
+            | <NuxtLink to="#">School Cafeteria and Kitchen</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <a href="#">Term Dates</a>
+            | <NuxtLink to="#">Term Dates</NuxtLink>
           </div>
         </div>
       </div>
@@ -174,8 +174,8 @@ export default {
         0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
         0px 0px 1px rgba(0, 0, 0, 0.04);
       border-radius: 20px;
-      margin-left: 63px;
-      margin-top: 290px;
+      margin-left: 58px;
+      margin-top: 275px;
       width: 280px;
       z-index: 999;
 
@@ -192,7 +192,7 @@ export default {
         0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
         0px 0px 1px rgba(0, 0, 0, 0.04);
       border-radius: 20px;
-      margin-left: 460px;
+      margin-left: 400px;
       margin-top: 150px;
       width: 150px;
       z-index: 999;

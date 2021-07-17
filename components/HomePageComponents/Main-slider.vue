@@ -34,7 +34,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 .main-slider {
   overflow-x: hidden;
   display: flex;

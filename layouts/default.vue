@@ -14,36 +14,36 @@
 <script>
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 export default {
-  // head() {
-  //   return {
-  //     link: [
-  //       {
-  //         rel: "stylesheet",
-  //         href: "/Admin/css/adminlte.min.css"
-  //       }
-  //     ],
-  //     script: [
-  //       {
-  //         src: "/jquery-3.6.0.min.js",
-  //         crossorigin: "anonymous"
-  //       },
-  //       {
-  //         src: "/Admin/js/adminlte.min.js",
-  //         type: "text/javascript"
-  //       }
-  //     ]
-  //   };
-  // },
+  head() {
+    return {
+      link: [
+        {
+          rel: "stylesheet",
+          href: "/Admin/css/adminlte.min.css"
+        }
+      ],
+      script: [
+        {
+          src: "/jquery-3.6.0.min.js",
+          crossorigin: "anonymous"
+        },
+        {
+          src: "/Admin/js/adminlte.min.js",
+          type: "text/javascript"
+        }
+      ]
+    };
+  },
   computed: {
     faBars() {
       return faBars;
-    },
+    }
   },
   methods: {
     change() {
       this.$store.commit("sidebar/showHide");
-    },
-  },
+    }
+  }
 };
 </script>
 

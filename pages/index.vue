@@ -17,7 +17,14 @@ import MainSlider from "~/components/HomePageComponents/Main-slider";
 import Benefits from "~/components/HomePageComponents/Benefits";
 import AboutUS from "~/components/HomePageComponents/AboutUS";
 import Footer from "~/components/Footer";
+
 export default {
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+      setTimeout(() => this.$nuxt.$loading.finish(), 1000);
+    });
+  },
   components: { Footer, AboutUS, Benefits, MainSlider, Menu },
   layout: "public",
   computed: {
@@ -28,7 +35,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 .Upper_Page {
   background-color: #66cc00;
   height: auto;

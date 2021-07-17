@@ -10,13 +10,7 @@ module.exports = {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" }
     ],
-    link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      {
-        rel: "stylesheet",
-        href: "/Admin/css/adminlte.min.css"
-      }
-    ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     script: [
       // {
       //   src: "/bootstrap.bundle.min.js",
@@ -26,14 +20,14 @@ module.exports = {
       //   src: "/Admin/js/adminlte.min.js",
       //   type: "text/javascript"
       // }
-      {
-        src: "/jquery-3.6.0.min.js",
-        crossorigin: "anonymous"
-      },
-      {
-        src: "/Admin/js/adminlte.min.js",
-        type: "text/javascript"
-      }
+      // {
+      //   src: "/jquery-3.6.0.min.js",
+      //   crossorigin: "anonymous"
+      // },
+      // {
+      //   src: "/Admin/js/adminlte.min.js",
+      //   type: "text/javascript"
+      // }
     ]
   },
 
