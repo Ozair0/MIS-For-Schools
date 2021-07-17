@@ -42,7 +42,7 @@
             | <NuxtLink to="/Our-vision">Our Vision and Mission</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="#">Campus and Facilities</NuxtLink>
+            | <NuxtLink to="/Campus_facilities">Campus and Facilities</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
             | <NuxtLink to="#">School Cafeteria and Kitchen</NuxtLink>

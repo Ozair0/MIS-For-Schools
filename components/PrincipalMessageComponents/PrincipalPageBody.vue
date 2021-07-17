@@ -91,6 +91,7 @@ export default {
       .Principal_Line {
         margin-top: 5px;
         border: 2px solid #9c42f3;
+        background: #9c42f3;
         border-radius: 30px;
         width: 80px;
       }
