@@ -45,7 +45,10 @@
             | <NuxtLink to="/Campus_facilities">Campus and Facilities</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="#">School Cafeteria and Kitchen</NuxtLink>
+            |
+            <NuxtLink to="School_cafeteria"
+              >School Cafeteria and Kitchen</NuxtLink
+            >
           </div>
           <div class="Drop_Down_Menu_List_Item">
             | <NuxtLink to="#">Term Dates</NuxtLink>

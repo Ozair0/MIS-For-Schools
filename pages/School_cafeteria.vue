@@ -1,8 +1,7 @@
 <template>
-  <div class="Campus_Main">
-    <Page_Info title="Campus and Facilities" />
-    <CampusBody />
-    <CampusCards />
+  <div class="School_Cafeteria_Main">
+    <Page_Info title="School Cafeteria & Kitchen" />
+    <SchoolCafeteriaBody />
   </div>
 </template>
 
@@ -10,10 +9,9 @@
 //import { mapState, mapActions, mapMutations } from 'vuex';
 
 import Page_Info from "~/components/Page_Info";
-import CampusBody from "~/components/CampusFacilitiesComponents/CampusBody";
-import CampusCards from "~/components/CampusFacilitiesComponents/CampusCards";
+import SchoolCafeteriaBody from "~/components/SchoolCafeteriaComponents/SchoolCafeteriaBody";
 export default {
-  components: { CampusCards, CampusBody, Page_Info },
+  components: { SchoolCafeteriaBody, Page_Info },
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start();
@@ -26,7 +24,7 @@ export default {
 
 <style lang="scss" rel="stylesheet/scss" scoped>
 /*@import "./resources/assets/sass/variables";*/
-.Campus_Main {
+.School_Cafeteria_Main {
   margin-bottom: 40px;
 }
 </style>
