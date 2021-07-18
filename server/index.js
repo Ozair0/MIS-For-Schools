@@ -38,9 +38,10 @@ async function start() {
   app.use(nuxt.render);
 
   // Listen the server
-  app.listen(port, "10.10.10.8");
+  // app.listen(port, "10.10.10.8");
+  app.listen(port, host);
   consola.ready({
-    message: `Server listening on http://10.10.10.8:${port}`,
+    message: `Server listening on http://${host}:${port}`,
     badge: true
   });
 }

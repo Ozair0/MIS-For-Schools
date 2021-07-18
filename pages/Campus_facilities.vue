@@ -1,6 +1,8 @@
 <template>
   <div class="Campus_Main">
     <Page_Info title="Campus and Facilities" />
+    <CampusBody />
+    <CampusCards />
   </div>
 </template>
 
@@ -8,8 +10,10 @@
 //import { mapState, mapActions, mapMutations } from 'vuex';
 
 import Page_Info from "~/components/Page_Info";
+import CampusBody from "~/components/CampusFacilitiesComponents/CampusBody";
+import CampusCards from "~/components/CampusFacilitiesComponents/CampusCards";
 export default {
-  components: { Page_Info },
+  components: { CampusCards, CampusBody, Page_Info },
   mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start();

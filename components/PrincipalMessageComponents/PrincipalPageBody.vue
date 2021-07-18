@@ -47,17 +47,7 @@
 </template>
 
 <script>
-//import { mapState, mapActions, mapMutations } from 'vuex';
-
-export default {
-  mounted() {},
-
-  data() {
-    return {};
-  },
-
-  methods: {}
-};
+export default {};
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
