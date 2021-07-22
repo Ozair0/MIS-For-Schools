@@ -1,6 +1,12 @@
 <template>
   <div class="About_Us">
-    <img src="/Images/Bus.png" class="About_Image" alt="Bus Image" />
+    <nuxt-img
+      format="webp"
+      width="410"
+      src="/Images/Bus.png"
+      class="About_Image"
+      alt="Bus Image"
+    />
     <div class="About_Us_Text">
       <p class="About_Us_Label">About US</p>
       <p class="About_Us_Title">
@@ -32,9 +38,9 @@ export default {};
   margin-right: 100px;
   display: flex;
   justify-content: space-around;
-  img {
-    width: 410px;
-  }
+  //img {
+  //  width: 410px;
+  //}
   .About_Us_Text {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,10 @@
 <template>
   <div class="Main_Footer">
-    <img src="~/static/Images/f1.png" alt="let's Have Some Fun Image" />
+    <nuxt-img
+      src="/Images/f1.png"
+      format="webp"
+      alt="let's Have Some Fun Image"
+    />
     <div class="Footer">
       <div class="Footer_Logo_Address">
         <svg

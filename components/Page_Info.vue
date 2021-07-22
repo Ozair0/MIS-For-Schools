@@ -31,8 +31,16 @@ export default {
   props: {
     title: String
   },
-  mounted() {},
-
+  mounted() {
+    this.$nextTick(() => {
+      document.querySelector(
+        ".Page_Info"
+      ).style.background = `linear-gradient(0deg,rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)),url('${this.$img(
+        "/14.jpg",
+        { format: "webp" }
+      )}')`;
+    });
+  },
   data() {
     return {};
   },
@@ -44,8 +52,6 @@ export default {
 <style lang="scss" rel="stylesheet/scss" scoped>
 .Page_Info {
   height: 325px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("/14.jpg");
   background-position-y: -60px;
   display: flex;
   flex-direction: column;

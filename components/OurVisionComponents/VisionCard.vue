@@ -7,7 +7,14 @@
       }`
     "
   >
-    <img :src="`${image}`" :alt="title" />
+    <nuxt-img
+      height="220"
+      width="377"
+      fit="cover"
+      format="webp"
+      :src="`${image}`"
+      :alt="title"
+    />
     <div class="Vis_Card_Text">
       <p class="Vis_Card_Title" v-html="title"></p>
       <p class="Vis_Card_Body" v-html="body"></p>
@@ -42,9 +49,6 @@ export default {
   img {
     filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.25));
     border-radius: 30px;
-    height: 220px;
-    width: 377px;
-    object-fit: cover;
   }
   .Vis_Card_Text {
     margin-top: 30px;

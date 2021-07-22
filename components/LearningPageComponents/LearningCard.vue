@@ -1,14 +1,15 @@
 <template>
-  <div class="Campus_Card_Main">
+  <div class="Learning_Card_Main">
     <nuxt-img
       width="360"
+      height="210"
       format="webp"
       :src="`/Campus/${image}`"
       :alt="image"
     />
-    <div class="Campus_Card_Text">
-      <p class="Campus_Card_Title">{{ title }}</p>
-      <p class="Campus_Card_Body" v-html="body"></p>
+    <div class="Learning_Card_Text">
+      <p class="Learning_Card_Title">{{ title }}</p>
+      <p class="Learning_Card_Body" v-html="body"></p>
     </div>
   </div>
 </template>
@@ -27,7 +28,7 @@ export default {
 
 <style lang="scss" rel="stylesheet/scss" scoped>
 /*@import "./resources/assets/sass/variables";*/
-.Campus_Card_Main {
+.Learning_Card_Main {
   //flex: 0 0 360px;
   margin-top: 40px;
   background: #ffffff;
@@ -40,16 +41,16 @@ export default {
   img {
     border-radius: 15px;
   }
-  .Campus_Card_Text {
+  .Learning_Card_Text {
     width: max-content;
     margin: 0 0 20px 40px;
 
-    .Campus_Card_Title {
+    .Learning_Card_Title {
       font-weight: bold;
       font-size: 20px;
       color: #000000;
     }
-    .Campus_Card_Body {
+    .Learning_Card_Body {
       font-weight: bold;
       font-size: 14px;
       color: #595959;
@@ -57,35 +58,34 @@ export default {
   }
 }
 @media only screen and (max-width: 540px) {
-  .Campus_Card_Main {
+  .Learning_Card_Main {
     img {
       border-radius: 15px;
-      width: 300px;
     }
-    .Campus_Card_Text {
-      .Campus_Card_Title {
+    .Learning_Card_Text {
+      .Learning_Card_Title {
         font-size: 18px;
       }
-      .Campus_Card_Body {
+      .Learning_Card_Body {
         font-size: 13px;
       }
     }
   }
 }
 @media only screen and (max-width: 430px) {
-  .Campus_Card_Main {
+  .Learning_Card_Main {
     width: 240px;
     img {
       border-radius: 15px;
       width: 240px;
     }
-    .Campus_Card_Text {
+    .Learning_Card_Text {
       margin-left: 20px;
-      .Campus_Card_Title {
-        font-size: 16px;
+      .Learning_Card_Title {
+        font-size: 14px;
       }
-      .Campus_Card_Body {
-        font-size: 11px;
+      .Learning_Card_Body {
+        font-size: 10px;
       }
     }
   }

@@ -21,6 +21,7 @@
     "vue-frag": "^1.1.5"
   },
   "devDependencies": {
+    "@nuxt/image": "^0.5.0",
     "@nuxt/types": "^2.15.6",
     "fibers": "^5.0.0",
     "nodemon": "^2.0.7",

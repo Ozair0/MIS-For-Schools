@@ -70,7 +70,49 @@
     </div>
   </div>
 </template>
-<script></script>
+<script>
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      document.querySelector(
+        ".B_Card_Image1"
+      ).style.background = `#9c42f3 url("${this.$img("/Images/7.png", {
+        format: "webp",
+        width: 78,
+        height: 78
+      })}") no-repeat center`;
+      document.querySelector(
+        ".B_Card_Image2"
+      ).style.background = `rgba(63, 255, 140, 0.73) url("${this.$img(
+        "/Images/6.png",
+        {
+          format: "webp"
+        }
+      )}") no-repeat center`;
+      document.querySelector(
+        ".B_Card_Image3"
+      ).style.background = `#66cc00 url("${this.$img("/Images/5.png", {
+        format: "webp"
+      })}") no-repeat center`;
+      document.querySelector(
+        ".B_Card_Image4"
+      ).style.background = `#ff6b00 url("${this.$img("/Images/2.png", {
+        format: "webp"
+      })}") no-repeat center`;
+      document.querySelector(
+        ".B_Card_Image5"
+      ).style.background = `#f2ff59 url("${this.$img("/Images/3.png", {
+        format: "webp"
+      })}") no-repeat center`;
+      document.querySelector(
+        ".B_Card_Image6"
+      ).style.background = `#ff0000 url("${this.$img("/Images/4.png", {
+        format: "webp"
+      })}") no-repeat center`;
+    });
+  }
+};
+</script>
 <style lang="scss" rel="stylesheet/scss" scoped>
 .B_Cards_Column {
   display: flex;
@@ -104,40 +146,18 @@
           padding: 5px 50px;
           border-radius: 100%;
           box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+          background-size: 100% !important;
         }
         .B_Card_Image1 {
-          background: #9c42f3 url("/Images/7.png") no-repeat center;
-          background-size: 78px 78px;
+          background-size: auto !important;
         }
-        .B_Card_Image2 {
-          background: rgba(63, 255, 140, 0.73) url("/Images/6.png") no-repeat
-            center;
-          background-size: 100%;
-        }
-        .B_Card_Image3 {
-          background: #66cc00 url("/Images/5.png") no-repeat center;
-          background-size: 100%;
-        }
-        .B_Card_Image4 {
-          background: #ff6b00 url("/Images/2.png") no-repeat center;
-          background-size: 100%;
-        }
-        .B_Card_Image5 {
-          background: #f2ff59 url("/Images/3.png") no-repeat center;
-          background-size: 100%;
-        }
-        .B_Card_Image6 {
-          background: #ff0000 url("/Images/4.png") no-repeat center;
-          background-size: 100%;
-        }
+
         .B_Card_Text {
           .B_Card_Title {
-            font-family: Roboto;
             font-style: normal;
             font-weight: bold;
           }
           .B_Card_Body {
-            font-family: Roboto;
             font-style: normal;
             color: #a8a8a8;
           }

@@ -13,7 +13,63 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  mounted() {
+    this.$nextTick(() => {
+      /*
+      * background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      * */
+      document.querySelector(".W_Item_1").style.background = `url("${this.$img(
+        "/Images/6.png",
+        {
+          format: "webp"
+        }
+      )}"),rgba(63, 255, 140, 0.73)`;
+      document.querySelector(".W_Item_2").style.background = `url("${this.$img(
+        "/Images/7.png",
+        {
+          format: "webp",
+          height: 42,
+          width: 42
+        }
+      )}"),#9c42f3`;
+      document.querySelector(".W_Item_3").style.background = `url("${this.$img(
+        "/Images/2.png",
+        {
+          format: "webp"
+        }
+      )}"),#66cc00`;
+      document.querySelector(".W_Item_4").style.background = `url("${this.$img(
+        "/Images/4.png",
+        {
+          format: "webp"
+        }
+      )}"),rgba(255, 0, 0, 0.73)`;
+      document.querySelector(".W_Item_5").style.background = `url("${this.$img(
+        "/Images/3.png",
+        {
+          format: "webp"
+        }
+      )}"),rgba(242, 255, 89, 0.73)`;
+      document.querySelector(".W_Item_6").style.background = `url("${this.$img(
+        "/Images/5.png",
+        {
+          format: "webp"
+        }
+      )}"),#ff6b00`;
+      document.querySelector(".W_Item_7").style.background = `url("${this.$img(
+        "/Images/1.png",
+        {
+          format: "webp"
+        }
+      )}"),#0038ff`;
+
+      //console.log(document.querySelector(".W_Item_1").style.background);
+    });
+  }
+};
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
 .W_KIS_Of {
@@ -48,43 +104,12 @@ export default {};
       padding: 30px;
       border-radius: 100%;
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-    }
-    .W_Item_1 {
-      background: url("/Images/6.png"), rgba(63, 255, 140, 0.73);
-      background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
+      background-size: 100% !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
     }
     .W_Item_2 {
-      background: url("/Images/7.png"), #9c42f3;
-      background-size: 50px 50px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    .W_Item_3 {
-      background: url("/Images/2.png"), #66cc00;
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-    .W_Item_4 {
-      background: url("/Images/4.png"), rgba(255, 0, 0, 0.73);
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-    .W_Item_5 {
-      background: url("/Images/3.png"), rgba(242, 255, 89, 0.73);
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-    .W_Item_6 {
-      background: url("/Images/5.png"), #ff6b00;
-      background-size: 100%;
-      background-repeat: no-repeat;
-    }
-    .W_Item_7 {
-      background: url("/Images/1.png"), #0038ff;
-      background-size: 100%;
-      background-repeat: no-repeat;
+      background-size: auto !important;
     }
   }
 }

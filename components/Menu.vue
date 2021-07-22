@@ -51,49 +51,54 @@
             >
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="#">Term Dates</NuxtLink>
+            | <NuxtLink to="Term_dates">Term Dates</NuxtLink>
           </div>
         </div>
       </div>
-      <a href="/">learning</a>
-      <a href="/">Admissions</a>
-      <a href="/">Our Team</a>
-      <a href="#" class="Fa_A news_events"
-        >News & Events
+      <NuxtLink to="/Learning">Learning</NuxtLink>
+      <NuxtLink to="/Admissions">Admissions</NuxtLink>
+      <NuxtLink to="/">Our Team</NuxtLink>
+      <NuxtLink to="#" class="Fa_A news_events"
+        >Portals
         <fa :icon="faAngleDown" color="white" />
-      </a>
+      </NuxtLink>
       <div class="Drop_Down_Menu_2">
-        <p>News & Events</p>
+        <p>Portals</p>
         <div class="Drop_Down_Menu_List">
           <div class="Drop_Down_Menu_List_Item D_Active">
             |
-            <a href="#" class="D_A_Active">News</a>
+            <NuxtLink to="#" class="D_A_Active">Students</NuxtLink>
           </div>
-          <div class="Drop_Down_Menu_List_Item">| <a href="#">Events</a></div>
+          <div class="Drop_Down_Menu_List_Item">
+            | <NuxtLink to="#">Parents</NuxtLink>
+          </div>
+          <div class="Drop_Down_Menu_List_Item">
+            | <NuxtLink to="#">Teachers</NuxtLink>
+          </div>
         </div>
       </div>
       <a class="Link_Line">|</a>
       <a href="/" class="Contact_Us_Link">Contact Us</a>
     </div>
     <div class="R_Menu_List" v-else>
-      <a href="/" class="R_Menu_List_Drawer" @click.prevent="ShowMenu">
+      <a href="#" class="R_Menu_List_Drawer" @click.prevent="ShowMenu">
         <fa :icon="faBars" size="2x" color="white" />
       </a>
       <transition name="slide-down">
         <div v-if="RHide" class="R_Menu_List_Items">
-          <a href="#">Home</a>
+          <nuxt-link to="/">Home</nuxt-link>
           <a href="#"
             >Our School
             <fa :icon="faAngleDown" color="white" />
           </a>
-          <a href="#">learning</a>
-          <a href="#">Admissions</a>
-          <a href="#">Our Team</a>
-          <a href="#"
+          <nuxt-link to="/Learning">learning</nuxt-link>
+          <nuxt-link to="/Admissions">Admissions</nuxt-link>
+          <nuxt-link to="#">Our Team</nuxt-link>
+          <nuxt-link to="#"
             >News & Events
             <fa :icon="faAngleDown" color="white" />
-          </a>
-          <a href="#">Contact Us</a>
+          </nuxt-link>
+          <nuxt-link to="#">Contact Us</nuxt-link>
         </div>
       </transition>
     </div>

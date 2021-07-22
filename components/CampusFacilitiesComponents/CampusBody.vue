@@ -29,7 +29,12 @@
         staff ensuring the highest standards of safety and nutrition.<br />
       </p>
     </div>
-    <img class="facility_Image" src="/facility.jpg" alt="facility Image" />
+    <nuxt-img
+      format="webp"
+      class="facility_Image"
+      src="/facility.jpg"
+      alt="facility Image"
+    />
   </div>
 </template>
 

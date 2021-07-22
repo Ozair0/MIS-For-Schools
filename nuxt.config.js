@@ -1,5 +1,11 @@
 module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  render: {
+    compressor: false,
+    static: {
+      maxAge: 60 * 60 * 24 * 365 * 1000
+    }
+  },
   head: {
     title: "KIS",
     htmlAttrs: {
@@ -8,7 +14,11 @@ module.exports = {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      {
+        hid: "description",
+        name: "description",
+        content: "This Is Kardan international School Official Website"
+      }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     script: [
@@ -30,6 +40,18 @@ module.exports = {
       // }
     ]
   },
+  loading: {
+    color: "#663695",
+    height: "3px",
+    continuous: true
+  },
+
+  // Only works when mode: 'spa'
+  // loadingIndicator: {
+  //   name: "circle",
+  //   color: "#3B8070",
+  //   background: "white"
+  // },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -47,7 +69,7 @@ module.exports = {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-fontawesome"],
+  modules: ["nuxt-fontawesome", "@nuxt/image"],
   fontawesome: {
     component: "fa"
   },

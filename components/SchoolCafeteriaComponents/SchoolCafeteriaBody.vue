@@ -19,8 +19,8 @@
       necessary nutrient, and returning plates and culinary.<br />
     </p>
     <div class="Cafeteria_Food_Menus">
-      <img src="/Food_Menu1.png" alt="Food Menu 1" />
-      <img src="/Food_Menu2.png" alt="Food Menu 2" />
+      <nuxt-img format="webp" src="/Food_Menu1.png" alt="Food Menu 1" />
+      <nuxt-img format="webp" src="/Food_Menu2.png" alt="Food Menu 2" />
     </div>
   </div>
 </template>

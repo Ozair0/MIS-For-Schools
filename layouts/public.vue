@@ -10,11 +10,6 @@ import Footer from "~/components/Footer";
 import Menu from "~/components/Menu";
 
 export default {
-  loading: {
-    color: "green",
-    height: "10px",
-    continuous: true
-  },
   components: { Footer, Menu }
 };
 </script>

@@ -42,7 +42,12 @@
         seeing you and welcoming you to our school.
       </p>
     </div>
-    <img class="Principal_Image" src="/Principal.png" alt="Principal Image" />
+    <nuxt-img
+      format="webp"
+      class="Principal_Image"
+      src="/Principal.png"
+      alt="Principal Image"
+    />
   </div>
 </template>
 
