@@ -1,8 +1,6 @@
 <template>
-  <div class="Admissions_Main">
-    <Page_Info title="Admissions" />
-    <AdmissionsBody />
-    <AdmissionPageInfo />
+  <div class="OurTeam_Main">
+    <Page_Info title="Our Team" />
   </div>
 </template>
 
@@ -10,10 +8,8 @@
 //import { mapState, mapActions, mapMutations } from 'vuex';
 
 import Page_Info from "~/components/Page_Info";
-import AdmissionsBody from "~/components/AdmissionsComponents/AdmissionsBody";
-import AdmissionPageInfo from "~/components/AdmissionsComponents/AdmissionPageInfo";
 export default {
-  components: { AdmissionPageInfo, AdmissionsBody, Page_Info },
+  components: { Page_Info },
   layout: "public",
   mounted() {
     this.$nextTick(() => {

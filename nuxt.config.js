@@ -1,7 +1,7 @@
 module.exports = {
   // Global page headers: https://go.nuxtjs.dev/config-head
   render: {
-    compressor: false,
+    // compressor: false,
     static: {
       maxAge: 60 * 60 * 24 * 365 * 1000
     }

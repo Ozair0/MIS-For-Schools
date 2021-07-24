@@ -16,6 +16,7 @@
     "core-js": "^3.9.1",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "node-sass": "^6.0.1",
     "nuxt": "^2.15.7",
     "nuxt-fontawesome": "^0.4.0",
     "vue-frag": "^1.1.5"
@@ -25,7 +26,7 @@
     "@nuxt/types": "^2.15.6",
     "fibers": "^5.0.0",
     "nodemon": "^2.0.7",
-    "sass": "^1.35.1",
-    "sass-loader": "^10.1.1"
+    "sass": "^1.36.0",
+    "sass-loader": "^10.2.0"
   }
 }

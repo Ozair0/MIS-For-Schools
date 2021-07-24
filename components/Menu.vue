@@ -57,7 +57,7 @@
       </div>
       <NuxtLink to="/Learning">Learning</NuxtLink>
       <NuxtLink to="/Admissions">Admissions</NuxtLink>
-      <NuxtLink to="/">Our Team</NuxtLink>
+      <NuxtLink to="/Our-team">Our Team</NuxtLink>
       <NuxtLink to="#" class="Fa_A news_events"
         >Portals
         <fa :icon="faAngleDown" color="white" />
@@ -93,7 +93,7 @@
           </a>
           <nuxt-link to="/Learning">learning</nuxt-link>
           <nuxt-link to="/Admissions">Admissions</nuxt-link>
-          <nuxt-link to="#">Our Team</nuxt-link>
+          <nuxt-link to="Our-team">Our Team</nuxt-link>
           <nuxt-link to="#"
             >News & Events
             <fa :icon="faAngleDown" color="white" />
