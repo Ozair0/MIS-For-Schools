@@ -13,7 +13,9 @@
 </template>
 <script>
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Sidebar from "~/components/sidebar/Sidebar";
 export default {
+  components: {Sidebar},
   head() {
     return {
       link: [

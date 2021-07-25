@@ -1,6 +1,7 @@
 <template>
   <div class="Main_Footer">
     <nuxt-img
+      v-if="showFooterImage"
       src="/Images/f1.png"
       format="webp"
       alt="let's Have Some Fun Image"
@@ -108,6 +109,9 @@
 import { faPhone, faAt } from "@fortawesome/free-solid-svg-icons";
 export default {
   computed: {
+    showFooterImage() {
+      return this.$store.state.showFooterImage.showFooterImage;
+    },
     faPhone() {
       return faPhone;
     },

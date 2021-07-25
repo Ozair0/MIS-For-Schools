@@ -14,6 +14,7 @@ export default {
   components: { Page_Info, PrincipalPageBody },
   mounted() {
     this.$nextTick(() => {
+      this.$store.commit("showFooterImage/showHide", false);
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 1000);
     });

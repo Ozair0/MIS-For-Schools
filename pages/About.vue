@@ -31,6 +31,7 @@ import About_Card from "~/components/AboutPageComponents/About_Card";
 export default {
   mounted() {
     this.$nextTick(() => {
+      this.$store.commit("showFooterImage/showHide", true);
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 1000);
     });

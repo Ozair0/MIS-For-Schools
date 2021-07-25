@@ -1,20 +1,16 @@
 <template>
-  <div class="Term_Dates_Main">
-    <Page_Info title="Term Dates" />
-    <TermDateBody />
-  </div>
+  <div class="ContactUS_Main"><ContactUsBody /></div>
 </template>
 
 <script>
 //import { mapState, mapActions, mapMutations } from 'vuex';
 
-import Page_Info from "~/components/Page_Info";
-import TermDateBody from "~/components/TermDatesComponents/TermDateBody";
+import ContactUsBody from "~/components/ContactUSComponents/ContactUsBody";
 export default {
-  components: { TermDateBody, Page_Info },
+  components: { ContactUsBody },
   mounted() {
     this.$nextTick(() => {
-      this.$store.commit("showFooterImage/showHide", true);
+      this.$store.commit("showFooterImage/showHide", false);
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 1000);
     });
@@ -25,7 +21,4 @@ export default {
 
 <style lang="scss" rel="stylesheet/scss" scoped>
 /*@import "./resources/assets/sass/variables";*/
-.Term_Dates_Main {
-  margin-bottom: 40px;
-}
 </style>

@@ -78,7 +78,7 @@
         </div>
       </div>
       <a class="Link_Line">|</a>
-      <a href="/" class="Contact_Us_Link">Contact Us</a>
+      <nuxt-link to="/Contact_us" class="Contact_Us_Link">Contact Us</nuxt-link>
     </div>
     <div class="R_Menu_List" v-else>
       <a href="#" class="R_Menu_List_Drawer" @click.prevent="ShowMenu">
@@ -98,7 +98,7 @@
             >News & Events
             <fa :icon="faAngleDown" color="white" />
           </nuxt-link>
-          <nuxt-link to="#">Contact Us</nuxt-link>
+          <nuxt-link to="/Contact_us">Contact Us</nuxt-link>
         </div>
       </transition>
     </div>

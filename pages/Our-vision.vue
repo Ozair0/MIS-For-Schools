@@ -26,6 +26,7 @@ export default {
   components: { VisionCard, Page_Info },
   mounted() {
     this.$nextTick(() => {
+      this.$store.commit("showFooterImage/showHide", false);
       this.$nuxt.$loading.start();
       setTimeout(() => this.$nuxt.$loading.finish(), 1000);
     });

@@ -40,12 +40,7 @@ export default {
         { format: "webp" }
       )}')`;
     });
-  },
-  data() {
-    return {};
-  },
-
-  methods: {}
+  }
 };
 </script>
 
