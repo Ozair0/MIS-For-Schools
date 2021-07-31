@@ -7,7 +7,7 @@
           <fa :icon="faBars" class="fa-2x" color="white" />
         </a>
       </div>
-      <div><Nuxt /></div>
+      <Nuxt />
     </div>
   </div>
 </template>
@@ -15,7 +15,8 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "~/components/sidebar/Sidebar";
 export default {
-  components: {Sidebar},
+  components: { Sidebar },
+  middleware: ["auth", "checkUser"],
   head() {
     return {
       link: [

@@ -40,6 +40,10 @@ module.exports = {
       // }
     ]
   },
+  // Custom Loading
+  // loading: "~/components/Loading.vue",
+
+  // built in Loading
   loading: {
     color: "#663695",
     height: "3px",
@@ -60,16 +64,51 @@ module.exports = {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/fragment.js"],
+  plugins: [
+    "~/plugins/fragment.js"
+    // { src: "~/plugins/persistedState.client.js", ssr: false }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
-
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-fontawesome", "@nuxt/image"],
+  modules: [
+    "nuxt-fontawesome",
+    "@nuxt/image",
+    "@nuxtjs/axios",
+    "@nuxtjs/auth-next"
+  ],
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: "user"
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: "/api/auth", method: "post" },
+          logout: { url: "/api/auth/logout", method: "get" },
+          user: { url: "/api/auth/", method: "get" }
+        }
+      }
+    },
+    rewriteRedirects: false,
+    redirect: {
+      login: "/login",
+      logout: false,
+      callback: false,
+      home: false
+    }
+  },
   fontawesome: {
     component: "fa"
   },

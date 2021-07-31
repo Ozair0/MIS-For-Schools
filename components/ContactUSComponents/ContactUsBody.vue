@@ -86,7 +86,7 @@
       </div>
     </div>
     <div class="C_Map_T">
-      <p class="Contact_US_Title">Tuition Fees</p>
+      <p class="Contact_US_Title">Location in google map</p>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13145.346715061789!2d69.1592458!3d34.54503!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xea64a603c5ed19f6!2zS2FyZGFuIEludGVybmF0aW9uYWwgU2Nob29sINmF2qnYqtioINio24zZhiDYp9mE2YXZhNmE24wg2qnYp9ix2K_Yp9mG!5e0!3m2!1sen!2s!4v1627208031355!5m2!1sen!2s"
         style="border:0;"

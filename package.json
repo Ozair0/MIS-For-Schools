@@ -2,8 +2,14 @@
   "name": "KIS",
   "version": "1.0.0",
   "private": true,
+  "nodemonConfig": {
+    "watch": [
+      "server/*",
+      "nuxt.config.js"
+    ]
+  },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate"
@@ -12,20 +18,26 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^0.1.10",
-    "@nuxtjs/axios": "^5.13.5",
+    "@nuxtjs/auth-next": "5.0.0-1624817847.21691f1",
+    "@nuxtjs/axios": "^5.13.6",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.6",
     "core-js": "^3.9.1",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "jsonwebtoken": "^8.5.1",
     "node-sass": "^6.0.1",
     "nuxt": "^2.15.7",
     "nuxt-fontawesome": "^0.4.0",
+    "pg": "^8.6.0",
     "vue-frag": "^1.1.5"
   },
   "devDependencies": {
     "@nuxt/image": "^0.5.0",
     "@nuxt/types": "^2.15.6",
     "fibers": "^5.0.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.12",
     "sass": "^1.36.0",
     "sass-loader": "^10.2.0"
   }

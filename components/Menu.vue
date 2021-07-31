@@ -67,13 +67,16 @@
         <div class="Drop_Down_Menu_List">
           <div class="Drop_Down_Menu_List_Item D_Active">
             |
-            <NuxtLink to="#" class="D_A_Active">Students</NuxtLink>
+            <NuxtLink to="/Login/1" class="D_A_Active">Students</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="#">Parents</NuxtLink>
+            | <NuxtLink to="/Login/4">Parents</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="#">Teachers</NuxtLink>
+            | <NuxtLink to="/Login/2">Teachers</NuxtLink>
+          </div>
+          <div class="Drop_Down_Menu_List_Item">
+            | <NuxtLink to="/Login/3">Staff</NuxtLink>
           </div>
         </div>
       </div>
@@ -95,7 +98,7 @@
           <nuxt-link to="/Admissions">Admissions</nuxt-link>
           <nuxt-link to="Our-team">Our Team</nuxt-link>
           <nuxt-link to="#"
-            >News & Events
+            >Portals
             <fa :icon="faAngleDown" color="white" />
           </nuxt-link>
           <nuxt-link to="/Contact_us">Contact Us</nuxt-link>

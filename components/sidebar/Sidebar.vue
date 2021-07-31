@@ -1,8 +1,8 @@
 <template>
   <div
     :class="
-      `d-flex flex-column flex-shrink-0 text-white bg-dark dst sidebar p-3${
-        sidebar ? ' hide_sidebar' : ''
+      `d-flex flex-column flex-shrink-0 text-white bg-dark sidebar dst${
+        sidebar ? ' hide_sidebar' : ' p-3'
       }`
     "
   >
@@ -81,18 +81,22 @@ export default {
 };
 </script>
 <style>
+.active {
+  background: rgb(58, 176, 195) !important;
+}
 .nav-item > a {
   color: white !important;
 }
 
 .nav-item > a:hover {
   color: white !important;
-  background-color: #0d6efd !important;
+  background-color: rgb(58, 176, 195) !important;
 }
 
 .dst {
   width: 280px;
-  height: 100vh;
+  height: 100vh !important;
+  padding: 0;
 }
 .sidebar {
   overflow-x: hidden;
@@ -108,7 +112,7 @@ export default {
   width: 100vw;
 }
 .Top_Menu {
-  background-color: #0d6efd;
+  background-color: rgb(58, 176, 195);
   padding-top: 10px;
   padding-bottom: 10px;
 }
