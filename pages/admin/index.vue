@@ -1,79 +1,102 @@
 <template>
   <div class="Admin_Content">
-    <svg
-      width="254"
-      height="91"
-      viewBox="0 0 254 91"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="Admin_K_Logo"
-    >
-      <path
-        d="M18.3125 40.75L13.4375 46V59H4.0625V13.5H13.4375V34.125L17.5625 28.4688L29.1562 13.5H40.6875L24.5312 33.7188L41.1562 59H30L18.3125 40.75ZM70.375 49.625H53.9375L50.8125 59H40.8438L57.7812 13.5H66.4688L83.5 59H73.5312L70.375 49.625ZM56.4688 42.0312H67.8438L62.125 25L56.4688 42.0312ZM104.594 42.3438H97.125V59H87.75V13.5H104.656C110.031 13.5 114.177 14.6979 117.094 17.0938C120.01 19.4896 121.469 22.875 121.469 27.25C121.469 30.3542 120.792 32.9479 119.438 35.0312C118.104 37.0938 116.073 38.7396 113.344 39.9688L123.188 58.5625V59H113.125L104.594 42.3438ZM97.125 34.75H104.688C107.042 34.75 108.865 34.1562 110.156 32.9688C111.448 31.7604 112.094 30.1042 112.094 28C112.094 25.8542 111.479 24.1667 110.25 22.9375C109.042 21.7083 107.177 21.0938 104.656 21.0938H97.125V34.75ZM128.625 59V13.5H142.625C146.625 13.5 150.198 14.4062 153.344 16.2188C156.51 18.0104 158.979 20.5729 160.75 23.9062C162.521 27.2188 163.406 30.9896 163.406 35.2188V37.3125C163.406 41.5417 162.531 45.3021 160.781 48.5938C159.052 51.8854 156.604 54.4375 153.438 56.25C150.271 58.0625 146.698 58.9792 142.719 59H128.625ZM138 21.0938V51.4688H142.531C146.198 51.4688 149 50.2708 150.938 47.875C152.875 45.4792 153.865 42.0521 153.906 37.5938V35.1875C153.906 30.5625 152.948 27.0625 151.031 24.6875C149.115 22.2917 146.312 21.0938 142.625 21.0938H138ZM195.25 49.625H178.812L175.688 59H165.719L182.656 13.5H191.344L208.375 59H198.406L195.25 49.625ZM181.344 42.0312H192.719L187 25L181.344 42.0312ZM249.625 59H240.25L222 29.0625V59H212.625V13.5H222L240.281 43.5V13.5H249.625V59Z"
-        fill="white"
-      />
-      <path
-        d="M8.02905 84H4.00073V64.4492H8.02905V84ZM15.092 69.4712L15.2129 71.1497C16.2513 69.8516 17.6433 69.2026 19.3889 69.2026C20.9286 69.2026 22.0745 69.6547 22.8264 70.5588C23.5784 71.463 23.9633 72.8147 23.9812 74.614V84H20.1006V74.708C20.1006 73.8844 19.9215 73.2891 19.5635 72.9221C19.2054 72.5461 18.6101 72.3582 17.7776 72.3582C16.6855 72.3582 15.8664 72.8236 15.3203 73.7546V84H11.4397V69.4712H15.092ZM31.5813 65.8994V69.4712H34.0654V72.3179H31.5813V79.5688C31.5813 80.106 31.6842 80.4909 31.8901 80.7236C32.096 80.9564 32.4899 81.0728 33.0718 81.0728C33.5015 81.0728 33.8819 81.0414 34.2131 80.9788V83.9194C33.4522 84.1522 32.6689 84.2686 31.8633 84.2686C29.1419 84.2686 27.7544 82.8944 27.7007 80.1462V72.3179H25.5791V69.4712H27.7007V65.8994H31.5813ZM42.9143 84.2686C40.7838 84.2686 39.0471 83.6151 37.7043 82.3081C36.3705 81.0011 35.7036 79.26 35.7036 77.0847V76.7087C35.7036 75.2496 35.9856 73.9471 36.5496 72.8013C37.1135 71.6465 37.9102 70.7603 38.9397 70.1426C39.9781 69.516 41.1597 69.2026 42.4846 69.2026C44.4719 69.2026 46.034 69.8293 47.1709 71.0825C48.3167 72.3358 48.8896 74.1127 48.8896 76.4133V77.9978H39.6379C39.7633 78.9467 40.1392 79.7076 40.7659 80.2805C41.4014 80.8534 42.2026 81.1399 43.1694 81.1399C44.6644 81.1399 45.8326 80.5983 46.6741 79.5151L48.5808 81.6501C47.9989 82.4737 47.2112 83.1182 46.2175 83.5837C45.2239 84.0403 44.1228 84.2686 42.9143 84.2686ZM42.4712 72.3447C41.7013 72.3447 41.0747 72.6043 40.5913 73.1235C40.1169 73.6427 39.8125 74.3857 39.6782 75.3525H45.0762V75.0437C45.0583 74.1843 44.8255 73.5219 44.3779 73.0564C43.9303 72.5819 43.2948 72.3447 42.4712 72.3447ZM59.2693 73.1101C58.7411 73.0385 58.2756 73.0027 57.8728 73.0027C56.4047 73.0027 55.4424 73.4995 54.9858 74.4932V84H51.1052V69.4712H54.771L54.8784 71.2034C55.6572 69.8695 56.7359 69.2026 58.1145 69.2026C58.5442 69.2026 58.947 69.2608 59.323 69.3772L59.2693 73.1101ZM64.7209 69.4712L64.8418 71.1497C65.8802 69.8516 67.2722 69.2026 69.0178 69.2026C70.5575 69.2026 71.7034 69.6547 72.4553 70.5588C73.2073 71.463 73.5922 72.8147 73.6101 74.614V84H69.7295V74.708C69.7295 73.8844 69.5505 73.2891 69.1924 72.9221C68.8343 72.5461 68.239 72.3582 67.4065 72.3582C66.3144 72.3582 65.4953 72.8236 64.9492 73.7546V84H61.0686V69.4712H64.7209ZM84.9834 84C84.8044 83.6509 84.6746 83.2167 84.594 82.6975C83.6541 83.7449 82.4321 84.2686 80.9282 84.2686C79.5049 84.2686 78.3232 83.8568 77.3833 83.0332C76.4523 82.2096 75.9868 81.1712 75.9868 79.918C75.9868 78.3783 76.5553 77.1966 77.6921 76.373C78.838 75.5495 80.4896 75.1332 82.647 75.1243H84.4329V74.2917C84.4329 73.6204 84.2583 73.0833 83.9092 72.6804C83.569 72.2776 83.0274 72.0762 82.2844 72.0762C81.6309 72.0762 81.1162 72.2328 80.7402 72.5461C80.3732 72.8595 80.1897 73.2891 80.1897 73.8352H76.3091C76.3091 72.9937 76.5687 72.2149 77.0879 71.4988C77.6071 70.7826 78.3411 70.2231 79.29 69.8203C80.2389 69.4085 81.3042 69.2026 82.4858 69.2026C84.2762 69.2026 85.6951 69.6547 86.7424 70.5588C87.7987 71.454 88.3269 72.7162 88.3269 74.3455V80.6431C88.3359 82.0216 88.5283 83.0645 88.9043 83.7717V84H84.9834ZM81.7742 81.301C82.3471 81.301 82.8752 81.1757 83.3586 80.925C83.842 80.6654 84.2001 80.3208 84.4329 79.8911V77.3936H82.9827C81.0401 77.3936 80.0062 78.0649 79.8809 79.4077L79.8674 79.636C79.8674 80.1194 80.0375 80.5177 80.3777 80.8311C80.7179 81.1444 81.1833 81.301 81.7742 81.301ZM95.9539 65.8994V69.4712H98.438V72.3179H95.9539V79.5688C95.9539 80.106 96.0568 80.4909 96.2627 80.7236C96.4686 80.9564 96.8625 81.0728 97.4443 81.0728C97.874 81.0728 98.2545 81.0414 98.5857 80.9788V83.9194C97.8248 84.1522 97.0415 84.2686 96.2358 84.2686C93.5145 84.2686 92.127 82.8944 92.0732 80.1462V72.3179H89.9517V69.4712H92.0732V65.8994H95.9539ZM104.695 84H100.801V69.4712H104.695V84ZM100.573 65.7114C100.573 65.1296 100.765 64.6506 101.15 64.2747C101.544 63.8987 102.077 63.7107 102.748 63.7107C103.411 63.7107 103.939 63.8987 104.333 64.2747C104.727 64.6506 104.924 65.1296 104.924 65.7114C104.924 66.3022 104.722 66.7856 104.319 67.1616C103.925 67.5376 103.402 67.7256 102.748 67.7256C102.095 67.7256 101.567 67.5376 101.164 67.1616C100.77 66.7856 100.573 66.3022 100.573 65.7114ZM107.3 76.6013C107.3 75.1601 107.578 73.8755 108.133 72.7476C108.688 71.6196 109.485 70.7468 110.523 70.1292C111.57 69.5115 112.783 69.2026 114.162 69.2026C116.122 69.2026 117.72 69.8024 118.956 71.002C120.2 72.2015 120.894 73.8307 121.037 75.8896L121.064 76.8833C121.064 79.1123 120.442 80.9027 119.197 82.2544C117.953 83.5972 116.283 84.2686 114.189 84.2686C112.094 84.2686 110.42 83.5972 109.167 82.2544C107.922 80.9116 107.3 79.0854 107.3 76.7759V76.6013ZM111.181 76.8833C111.181 78.2619 111.441 79.3182 111.96 80.0522C112.479 80.7773 113.222 81.1399 114.189 81.1399C115.129 81.1399 115.863 80.7818 116.391 80.0657C116.919 79.3406 117.183 78.1858 117.183 76.6013C117.183 75.2496 116.919 74.2022 116.391 73.4592C115.863 72.7162 115.12 72.3447 114.162 72.3447C113.213 72.3447 112.479 72.7162 111.96 73.4592C111.441 74.1933 111.181 75.3346 111.181 76.8833ZM127.026 69.4712L127.146 71.1497C128.185 69.8516 129.577 69.2026 131.323 69.2026C132.862 69.2026 134.008 69.6547 134.76 70.5588C135.512 71.463 135.897 72.8147 135.915 74.614V84H132.034V74.708C132.034 73.8844 131.855 73.2891 131.497 72.9221C131.139 72.5461 130.544 72.3582 129.711 72.3582C128.619 72.3582 127.8 72.8236 127.254 73.7546V84H123.373V69.4712H127.026ZM147.288 84C147.109 83.6509 146.979 83.2167 146.899 82.6975C145.959 83.7449 144.737 84.2686 143.233 84.2686C141.81 84.2686 140.628 83.8568 139.688 83.0332C138.757 82.2096 138.292 81.1712 138.292 79.918C138.292 78.3783 138.86 77.1966 139.997 76.373C141.143 75.5495 142.794 75.1332 144.952 75.1243H146.738V74.2917C146.738 73.6204 146.563 73.0833 146.214 72.6804C145.874 72.2776 145.332 72.0762 144.589 72.0762C143.936 72.0762 143.421 72.2328 143.045 72.5461C142.678 72.8595 142.494 73.2891 142.494 73.8352H138.614C138.614 72.9937 138.873 72.2149 139.393 71.4988C139.912 70.7826 140.646 70.2231 141.595 69.8203C142.544 69.4085 143.609 69.2026 144.791 69.2026C146.581 69.2026 148 69.6547 149.047 70.5588C150.103 71.454 150.632 72.7162 150.632 74.3455V80.6431C150.641 82.0216 150.833 83.0645 151.209 83.7717V84H147.288ZM144.079 81.301C144.652 81.301 145.18 81.1757 145.663 80.925C146.147 80.6654 146.505 80.3208 146.738 79.8911V77.3936H145.287C143.345 77.3936 142.311 78.0649 142.186 79.4077L142.172 79.636C142.172 80.1194 142.342 80.5177 142.682 80.8311C143.023 81.1444 143.488 81.301 144.079 81.301ZM157.708 84H153.814V63.375H157.708V84ZM178.158 78.8706C178.158 78.1097 177.89 77.5278 177.353 77.125C176.816 76.7132 175.849 76.2835 174.452 75.8359C173.056 75.3794 171.95 74.9318 171.136 74.4932C168.916 73.2936 167.806 71.6778 167.806 69.6458C167.806 68.5894 168.101 67.6495 168.692 66.8259C169.292 65.9934 170.147 65.3444 171.257 64.8789C172.376 64.4134 173.629 64.1807 175.016 64.1807C176.413 64.1807 177.657 64.4358 178.749 64.946C179.841 65.4473 180.687 66.159 181.287 67.0811C181.896 68.0031 182.2 69.0505 182.2 70.2231H178.172C178.172 69.328 177.89 68.6342 177.326 68.1418C176.762 67.6405 175.97 67.3899 174.949 67.3899C173.965 67.3899 173.199 67.6003 172.653 68.021C172.107 68.4328 171.834 68.9788 171.834 69.6592C171.834 70.2948 172.152 70.8274 172.787 71.2571C173.432 71.6868 174.376 72.0896 175.621 72.4656C177.912 73.1549 179.582 74.0098 180.629 75.0303C181.677 76.0508 182.2 77.3219 182.2 78.8438C182.2 80.5356 181.56 81.865 180.28 82.8318C179 83.7896 177.277 84.2686 175.11 84.2686C173.606 84.2686 172.237 83.9955 171.001 83.4495C169.766 82.8944 168.822 82.138 168.168 81.1802C167.524 80.2223 167.201 79.1123 167.201 77.8501H171.243C171.243 80.0075 172.532 81.0862 175.11 81.0862C176.068 81.0862 176.816 80.8937 177.353 80.5088C177.89 80.1149 178.158 79.5688 178.158 78.8706ZM190.727 81.1399C191.443 81.1399 192.025 80.943 192.472 80.5491C192.92 80.1552 193.153 79.6315 193.171 78.978H196.81C196.801 79.9627 196.532 80.8669 196.004 81.6904C195.476 82.505 194.751 83.1406 193.829 83.5972C192.916 84.0448 191.904 84.2686 190.794 84.2686C188.717 84.2686 187.079 83.6106 185.879 82.2947C184.68 80.9698 184.08 79.1436 184.08 76.8162V76.561C184.08 74.3231 184.675 72.5372 185.866 71.2034C187.057 69.8695 188.69 69.2026 190.767 69.2026C192.584 69.2026 194.039 69.7218 195.131 70.7603C196.232 71.7897 196.792 73.1638 196.81 74.8826H193.171C193.153 74.1306 192.92 73.5219 192.472 73.0564C192.025 72.5819 191.434 72.3447 190.7 72.3447C189.796 72.3447 189.111 72.6759 188.646 73.3384C188.189 73.9919 187.961 75.0571 187.961 76.5342V76.937C187.961 78.432 188.189 79.5062 188.646 80.1597C189.102 80.8132 189.796 81.1399 190.727 81.1399ZM202.812 71.0557C203.841 69.8203 205.135 69.2026 206.692 69.2026C209.843 69.2026 211.441 71.0333 211.486 74.6946V84H207.605V74.802C207.605 73.9695 207.426 73.3563 207.068 72.9624C206.71 72.5596 206.115 72.3582 205.282 72.3582C204.146 72.3582 203.322 72.7968 202.812 73.6741V84H198.931V63.375H202.812V71.0557ZM213.809 76.6013C213.809 75.1601 214.087 73.8755 214.642 72.7476C215.197 71.6196 215.993 70.7468 217.032 70.1292C218.079 69.5115 219.292 69.2026 220.671 69.2026C222.631 69.2026 224.229 69.8024 225.464 71.002C226.709 72.2015 227.402 73.8307 227.546 75.8896L227.573 76.8833C227.573 79.1123 226.95 80.9027 225.706 82.2544C224.462 83.5972 222.792 84.2686 220.698 84.2686C218.603 84.2686 216.929 83.5972 215.676 82.2544C214.431 80.9116 213.809 79.0854 213.809 76.7759V76.6013ZM217.69 76.8833C217.69 78.2619 217.949 79.3182 218.469 80.0522C218.988 80.7773 219.731 81.1399 220.698 81.1399C221.637 81.1399 222.372 80.7818 222.9 80.0657C223.428 79.3406 223.692 78.1858 223.692 76.6013C223.692 75.2496 223.428 74.2022 222.9 73.4592C222.372 72.7162 221.628 72.3447 220.671 72.3447C219.722 72.3447 218.988 72.7162 218.469 73.4592C217.949 74.1933 217.69 75.3346 217.69 76.8833ZM229.358 76.6013C229.358 75.1601 229.636 73.8755 230.191 72.7476C230.746 71.6196 231.543 70.7468 232.581 70.1292C233.628 69.5115 234.841 69.2026 236.22 69.2026C238.18 69.2026 239.778 69.8024 241.014 71.002C242.258 72.2015 242.952 73.8307 243.095 75.8896L243.122 76.8833C243.122 79.1123 242.5 80.9027 241.255 82.2544C240.011 83.5972 238.342 84.2686 236.247 84.2686C234.152 84.2686 232.478 83.5972 231.225 82.2544C229.981 80.9116 229.358 79.0854 229.358 76.7759V76.6013ZM233.239 76.8833C233.239 78.2619 233.499 79.3182 234.018 80.0522C234.537 80.7773 235.28 81.1399 236.247 81.1399C237.187 81.1399 237.921 80.7818 238.449 80.0657C238.977 79.3406 239.241 78.1858 239.241 76.6013C239.241 75.2496 238.977 74.2022 238.449 73.4592C237.921 72.7162 237.178 72.3447 236.22 72.3447C235.271 72.3447 234.537 72.7162 234.018 73.4592C233.499 74.1933 233.239 75.3346 233.239 76.8833ZM249.607 84H245.713V63.375H249.607V84Z"
-        fill="white"
-      />
-    </svg>
-
+    <button class="btn btn-primary Admission_BTN shadow">
+      New Admission
+    </button>
     <div class="Admin_Cards">
-      <div class="small-box bg-gradient-success card_C">
-        <div class="inner">
-          <h3>{{ totalStudents }}</h3>
-          <p>Students In School</p>
+      <div class="Admin_Cards_F">
+        <div class="small-box bg-gradient-success card_C shadow">
+          <div class="inner">
+            <h3>{{ 200 + parseInt(totalStudents) }}</h3>
+            <p>Students In School</p>
+          </div>
+          <div class="icon">
+            <fa :icon="faUserGraduate" />
+          </div>
+          <a href="#" class="small-box-footer">
+            View all <fa :icon="faArrowCircleRight" />
+          </a>
         </div>
-        <div class="icon">
-          <fa :icon="faUserPlus" />
+        <div class="small-box bg-gradient-secondary card_C shadow">
+          <div class="inner">
+            <h3>
+              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
+            </h3>
+            <p>Teachers In School</p>
+          </div>
+          <div class="icon">
+            <fa :icon="faGraduationCap" />
+          </div>
+          <a href="#" class="small-box-footer">
+            View all <fa :icon="faArrowCircleRight" />
+          </a>
         </div>
-        <a href="#" class="small-box-footer">
-          View all <fa :icon="faArrowCircleRight" />
-        </a>
+        <div class="small-box bg-gradient-info card_C shadow">
+          <div class="inner">
+            <h3>
+              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
+            </h3>
+            <p>Employees In School</p>
+          </div>
+          <div class="icon">
+            <fa :icon="faUserPlus" />
+          </div>
+          <a href="#" class="small-box-footer">
+            View all <fa :icon="faArrowCircleRight" />
+          </a>
+        </div>
       </div>
-      <div class="small-box bg-gradient-cyan card_C">
-        <div class="inner">
-          <h3>{{ totalStudents }}</h3>
-          <p>Teachers In School</p>
+      <div class="Admin_Cards_S">
+        <div class="small-box bg-gradient-primary card_C shadow">
+          <div class="inner">
+            <h3>
+              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
+            </h3>
+            <p>Male Students In School</p>
+          </div>
+          <div class="icon">
+            <fa :icon="faMale" />
+          </div>
+          <a href="#" class="small-box-footer">
+            View all <fa :icon="faArrowCircleRight" />
+          </a>
         </div>
-        <div class="icon">
-          <fa :icon="faUserPlus" />
+        <div class="small-box bg-gradient-olive card_C shadow">
+          <div class="inner">
+            <h3>
+              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
+            </h3>
+            <p>Female Students In School</p>
+          </div>
+          <div class="icon">
+            <fa :icon="faFemale" />
+          </div>
+          <a href="#" class="small-box-footer">
+            View all <fa :icon="faArrowCircleRight" />
+          </a>
         </div>
-        <a href="#" class="small-box-footer">
-          View all <fa :icon="faArrowCircleRight" />
-        </a>
-      </div>
-      <div class="small-box bg-gradient-teal card_C">
-        <div class="inner">
-          <h3>{{ totalStudents }}</h3>
-          <p>Parents In School</p>
+        <div class="small-box bg-gradient-danger card_C shadow">
+          <div class="inner">
+            <h3>
+              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
+            </h3>
+            <p>Total Income In This Month</p>
+          </div>
+          <div class="icon">
+            <fa :icon="faMoneyCheck" />
+          </div>
+          <a href="#" class="small-box-footer">
+            View all <fa :icon="faArrowCircleRight" />
+          </a>
         </div>
-        <div class="icon">
-          <fa :icon="faUserPlus" />
-        </div>
-        <a href="#" class="small-box-footer">
-          View all <fa :icon="faArrowCircleRight" />
-        </a>
-      </div>
-      <div class="small-box bg-gradient-info card_C">
-        <div class="inner">
-          <h3>{{ totalStudents }}</h3>
-          <p>Employees In School</p>
-        </div>
-        <div class="icon">
-          <fa :icon="faUserPlus" />
-        </div>
-        <a href="#" class="small-box-footer">
-          View all <fa :icon="faArrowCircleRight" />
-        </a>
       </div>
     </div>
     <div class="Admin_Cards_half">
-      <div class="info-box bg-gradient-teal Half_P_Card">
+      <div class="info-box bg-gradient-primary Half_P_Card shadow">
         <div class="info-box-content">
           <h3 class="info-box-text">Events</h3>
           <span class="info-box-number">Total: 410</span>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-secondary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -81,7 +104,7 @@
               </p>
             </div>
           </div>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-secondary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -89,7 +112,7 @@
               </p>
             </div>
           </div>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-secondary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -97,7 +120,7 @@
               </p>
             </div>
           </div>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-secondary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -106,15 +129,16 @@
             </div>
           </div>
           <span class="progress-description">
-            <a class="btn btn-outline-success" href="#">View All Events</a>
+            <a class="btn btn-secondary" href="#">View All Events</a>
+            <a class="btn btn-secondary" href="#">Add An Event</a>
           </span>
         </div>
       </div>
-      <div class="info-box bg-gradient-olive Half_P_Card">
+      <div class="info-box bg-gradient-secondary Half_P_Card shadow">
         <div class="info-box-content">
-          <h3 class="info-box-text">Events</h3>
+          <h3 class="info-box-text">Notice Board</h3>
           <span class="info-box-number">Total: 410</span>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-primary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -122,7 +146,7 @@
               </p>
             </div>
           </div>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-primary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -130,7 +154,7 @@
               </p>
             </div>
           </div>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-primary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -138,7 +162,7 @@
               </p>
             </div>
           </div>
-          <div class="card bg-gradient-success my-2">
+          <div class="card bg-gradient-primary my-2">
             <div class="card-header">
               <p class="card-title">
                 Fall Festival: Community School students, parents, and
@@ -146,8 +170,10 @@
               </p>
             </div>
           </div>
+
           <span class="progress-description">
-            <a class="btn btn-outline-success" href="#">View All Events</a>
+            <a class="btn btn-primary" href="#">View All Notices</a>
+            <a class="btn btn-primary" href="#">Add A Notice</a>
           </span>
         </div>
       </div>
@@ -159,15 +185,31 @@
 import {
   faUserPlus,
   faArrowCircleRight,
-  faCalendarAlt
+  faUserGraduate,
+  faGraduationCap,
+  faFemale,
+  faMale,
+  faMoneyCheck
 } from "@fortawesome/free-solid-svg-icons";
 export default {
   computed: {
     faUserPlus() {
       return faUserPlus;
     },
-    faCalendarAlt() {
-      return faCalendarAlt;
+    faFemale() {
+      return faFemale;
+    },
+    faMale() {
+      return faMale;
+    },
+    faUserGraduate() {
+      return faUserGraduate;
+    },
+    faMoneyCheck() {
+      return faMoneyCheck;
+    },
+    faGraduationCap() {
+      return faGraduationCap;
     },
     faArrowCircleRight() {
       return faArrowCircleRight;
@@ -191,34 +233,58 @@ export default {
 .Admin_Content {
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-  .Admin_K_Logo {
-    align-self: center;
-    path {
-      fill: #663695;
-    }
+  margin: 10px 10px 0 10px;
+  .Admission_BTN {
+    align-self: flex-end;
     margin-top: 10px;
     margin-bottom: 30px;
+    border-radius: 25px;
   }
   .Admin_Cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    .card_C {
-      width: 350px;
+
+    flex-direction: column;
+    .Admin_Cards_F {
+      display: flex;
+      justify-content: space-between;
+      .card_C {
+        //width: 400px;
+        flex: 0 0 30%;
+        border-radius: 20px;
+        .small-box-footer {
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+      }
+    }
+    .Admin_Cards_S {
+      display: flex;
+      justify-content: space-between;
+      .card_C {
+        //width: 400px;
+        flex: 0 0 30%;
+        border-radius: 20px;
+        .small-box-footer {
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+      }
     }
   }
   .Admin_Cards_half {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 40px;
     .Half_P_Card {
-      flex: 0 0 45%;
+      flex: 0 0 48%;
+      border-radius: 20px;
       .card-title {
         font-size: 15px;
       }
       .progress-description {
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

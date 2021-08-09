@@ -4,10 +4,12 @@ const DB = require("../../config/db");
 
 module.exports = function(req, res, next) {
   // Get token from the header
+  if (req.header("Authorization") === undefined) {
+    return res.status(401).json({ msg: "No Token, authorization denied" });
+  }
   const bearerToken = req.header("Authorization");
   const bearer = bearerToken.split(" ");
   const token = bearer[1];
-
   // Check if no token
   if (!token) {
     return res.status(401).json({ msg: "No Token, authorization denied" });

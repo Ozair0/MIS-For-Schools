@@ -19,6 +19,20 @@
       <span class="fs-4">KIS</span>
     </a>
     <hr />
+    <div class="user-panel pb-1 mb-3 d-flex">
+      <div class="image">
+        <nuxt-img
+          src="/OurTeam/Naseerullah.png"
+          width="200"
+          height="200"
+          class="img-circle elevation-2"
+          alt="User Image"
+        />
+      </div>
+      <div class="info ml-4">
+        <a href="#" class="d-block">Admin</a>
+      </div>
+    </div>
     <ul class="nav nav-pills flex-column mb-5">
       <li
         v-for="(menuItem, menuItemIndex) in menuItems"
@@ -80,7 +94,15 @@ export default {
   }
 };
 </script>
-<style>
+<style lang="scss">
+.sidebar {
+  .info {
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
 .active {
   background: rgb(58, 176, 195) !important;
 }
@@ -96,6 +118,7 @@ export default {
 .dst {
   width: 280px;
   height: 100vh !important;
+
   padding: 0;
 }
 .sidebar {
@@ -106,17 +129,5 @@ export default {
 .hide_sidebar {
   width: 0;
   padding: 0 !important;
-}
-
-.slide_main {
-  width: 100vw;
-}
-.Top_Menu {
-  background-color: rgb(58, 176, 195);
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.Top_Side {
-  margin: 10px;
 }
 </style>

@@ -65,7 +65,8 @@ module.exports = {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    "~/plugins/fragment.js"
+    "~/plugins/fragment.js",
+    "~/plugins/vuesweetalert2.js"
     // { src: "~/plugins/persistedState.client.js", ssr: false }
   ],
 
@@ -79,7 +80,8 @@ module.exports = {
     "nuxt-fontawesome",
     "@nuxt/image",
     "@nuxtjs/axios",
-    "@nuxtjs/auth-next"
+    "@nuxtjs/auth-next",
+    "vue-sweetalert2/nuxt"
   ],
   auth: {
     strategies: {
