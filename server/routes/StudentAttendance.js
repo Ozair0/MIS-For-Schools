@@ -16,15 +16,27 @@ router.post(
   [
     check("adate", "ADate is required!")
       .not()
+      .bail()
       .isEmpty()
+      .bail()
       .isDate(),
     check("studentid", "StudentID is required!")
       .not()
+      .bail()
       .isEmpty()
+      .bail()
+      .isInt(),
+    check("subjectid", "SubjectID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
       .isInt(),
     check("present", "Present is required!")
       .not()
+      .bail()
       .isEmpty()
+      .bail()
       .isBoolean()
   ],
   async (req, res) => {
@@ -32,12 +44,12 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { adate, studentid, present } = req.body;
+    const { adate, studentid, subjectid,present } = req.body;
 
     try {
       // Check student already in database
       await DB.query(
-        `SELECT adate,studentid FROM studentsattendance where adate='${adate}' and studentid=${studentid}`
+        `SELECT adate,studentid FROM studentsattendance where adate='${adate}' and studentid=${studentid} and subjectid=${subjectid}`
       )
         .then(async results => {
           if (results.rows.length > 0) {
@@ -48,8 +60,8 @@ router.post(
           } else {
             //Save Department To DB
             await DB.query(
-              "INSERT INTO studentsattendance(adate, studentid, present) VALUES($1,$2,$3) RETURNING id",
-              [adate, studentid, present]
+              "INSERT INTO studentsattendance(adate, studentid,subjectid, present) VALUES($1,$2,$3,$4) RETURNING id",
+              [adate, studentid,subjectid ,present]
             )
               .then(results => {
                 res.json({ studentAttendanceID: results.rows[0].id });

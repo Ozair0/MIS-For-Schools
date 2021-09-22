@@ -5,7 +5,8 @@ import {
   faSchool,
   faUsers,
   faUserTie,
-  faBuilding
+  faBuilding,
+  faChalkboard
 } from "@fortawesome/free-solid-svg-icons";
 export const state = () => ({
   menuItems: [
@@ -124,19 +125,22 @@ export const state = () => ({
           active: false,
           page: "/manage_grades"
         },
+      ],
+      page: "/admin/classes",
+      icon: faSchool
+    },
+    {
+      title: "Subjects Management",
+      active: false,
+      subMenu: [
         {
           title: "Create Subject",
           active: false,
           page: "/create_subject"
-        },
-        {
-          title: "Manage Subjects",
-          active: false,
-          page: "/manage_subjects"
         }
       ],
-      page: "/admin/classes",
-      icon: faSchool
+      page: "/admin/subjects",
+      icon: faChalkboard
     }
   ]
 });

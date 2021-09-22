@@ -23,51 +23,51 @@
         <div class="card-body p-0" style="display: block;">
           <table class="table table-striped projects">
             <thead>
-              <tr>
-                <th>
-                  Subject
-                </th>
-                <th>
-                  Teacher
-                </th>
-                <th>
-                  Grade
-                </th>
-                <th>
-                  Classroom
-                </th>
-                <th class="text-center">Actions</th>
-              </tr>
+            <tr>
+              <th>
+                Subject
+              </th>
+              <th>
+                Teacher
+              </th>
+              <th>
+                Grade
+              </th>
+              <th>
+                Classroom
+              </th>
+              <th class="text-center">Actions</th>
+            </tr>
             </thead>
             <tbody>
-              <tr v-for="(subject, index) in subjects" :key="index">
-                <td>
-                  {{ subject.subject }}
-                </td>
-                <td>
-                  <a href="#">{{ subject.teacher }}</a>
-                </td>
-                <td>
-                  {{ subject.gradenumber }}
-                </td>
-                <td>
-                  {{ subject.roomnumber }}
-                </td>
-                <td class="project-actions text-center">
-                  <a class="btn btn-primary btn-sm" href="#">
-                    <i class="fas fa-folder"> </i>
-                    View
-                  </a>
-                  <a class="btn btn-info btn-sm" href="#">
-                    <i class="fas fa-pencil-alt"> </i>
-                    Edit
-                  </a>
-                  <a class="btn btn-danger btn-sm" href="#">
-                    <i class="fas fa-trash"> </i>
-                    Delete
-                  </a>
-                </td>
-              </tr>
+            <tr v-for="(subject, index) in subjects" :key="index">
+              <td>
+                {{ subject.subject }}
+              </td>
+              <td>
+                <a href="#">{{ subject.teacher }}</a>
+              </td>
+              <td>
+                {{ subject.gradenumber }}
+              </td>
+              <td>
+                {{ subject.roomnumber }}
+              </td>
+              <td class="project-actions text-center">
+                <a class="btn btn-primary btn-sm" href="#">
+                  <i class="fas fa-folder"> </i>
+                  View
+                </a>
+                <a class="btn btn-info btn-sm" href="#">
+                  <i class="fas fa-pencil-alt"> </i>
+                  Edit
+                </a>
+                <a class="btn btn-danger btn-sm" href="#">
+                  <i class="fas fa-trash"> </i>
+                  Delete
+                </a>
+              </td>
+            </tr>
             </tbody>
           </table>
         </div>
@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     AddSubject() {
-      this.$router.push("create_subject");
+      this.$router.push("subjects/create_subject");
     }
   }
 };

@@ -39,7 +39,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ msg: errors.array() });
     }
     const { name } = req.body;
 
@@ -50,7 +50,7 @@ router.post(
           if (results.rows.length > 0) {
             return res
               .status(401)
-              .json({ msg: "Department is already in the database!" });
+              .json({ msg: [{ msg: "Department is already in the database!" }] });
           } else {
             //Save Department To DB
             await DB.query(
@@ -58,7 +58,7 @@ router.post(
               [name]
             )
               .then(results => {
-                res.json({ depID: results.rows[0].id });
+                res.json({ id: results.rows[0].id });
               })
               .catch(e => {
                 throw e;

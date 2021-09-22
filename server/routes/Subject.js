@@ -166,7 +166,7 @@ router.post(
 );
 
 // @route   POST api/subject/addmarks
-// @desc    Add Subject Marks Of Student
+// @desc    Add Subject Marks Of a Student
 // @access  Public
 
 router.post(

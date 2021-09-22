@@ -25,7 +25,7 @@
                 v-for="(teacher, index) in teachers"
                 :key="index"
                 :value="teacher.id"
-                >{{ teacher.name }} {{ teacher.lastname }}</option
+              >{{ teacher.name }} {{ teacher.lastname }}</option
               >
             </select>
           </div>
@@ -37,7 +37,7 @@
                 v-for="(grade, index) in grades"
                 :key="index"
                 :value="grade.id"
-                >{{ grade.gradenumber }}</option
+              >{{ grade.gradenumber }}</option
               >
             </select>
           </div>
@@ -49,7 +49,7 @@
                 v-for="(classroom, index) in classrooms"
                 :key="index"
                 :value="classroom.id"
-                >{{ classroom.roomnumber }}</option
+              >{{ classroom.roomnumber }}</option
               >
             </select>
           </div>
