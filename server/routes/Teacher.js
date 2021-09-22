@@ -8,6 +8,43 @@ const auth = require("../middleware/auth");
 const DB = require("../../config/db");
 const multer = require("multer");
 const path = require("path");
+
+// @route   POST api/teacher/allinfo
+// @desc    Get All Teachers NAME & ID
+// @access  Public
+router.get("/allinfo", (req, res) => {
+  try {
+    DB.query(`select id,name,lastname from teachers;`)
+      .then(result => {
+        res.status(200).json(result.rows);
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
+
+// @route   POST api/teacher/
+// @desc    Get Teacher Total
+// @access  Public
+router.get("/", (req, res) => {
+  try {
+    DB.query(`SELECT count(*) as total FROM teachers`)
+      .then(result => {
+        res.status(200).json({ total: result.rows[0].total });
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
+
 // @route   POST api/teacher/all
 // @desc    Get All teachers
 // @access  Public

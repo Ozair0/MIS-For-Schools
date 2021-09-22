@@ -192,19 +192,19 @@ export default {
           })
           .then(async () => {
             if (parseInt(this.$route.params.id) === 1) {
-              this.$router.push("/StudentPortal");
+              this.$router.push("/student_portal");
             } else if (parseInt(this.$route.params.id) === 2) {
-              this.$router.push("/TeacherPortal");
+              this.$router.push("/teacher_portal");
             } else if (parseInt(this.$route.params.id) === 3) {
               await this.$auth.fetchUser().then(res => {
                 if (!res.data.user[0].isadmin) {
-                  this.$router.push("/EmployeePortal");
+                  this.$router.push("/employee_portal");
                 } else {
                   this.$router.push("/Admin");
                 }
               });
             } else if (parseInt(this.$route.params.id) === 4) {
-              this.$router.push("/ParentPortal");
+              this.$router.push("/parent_portal");
             }
           });
       }

@@ -7,6 +7,26 @@ const config = require("config");
 const auth = require("../middleware/auth");
 const DB = require("../../config/db");
 
+// @route   POST api/subject/all
+// @desc    Get All Subjects
+// @access  Public
+router.get("/all", (req, res) => {
+  try {
+    DB.query(
+      `select s.name as subject,c.roomnumber,t.name as teacher, g.gradenumber  from subjects as s inner join classroom c on c.id = s.classroomid inner join teachers t on s.teacherid = t.id inner join grade g on s.gradeid = g.id;`
+    )
+      .then(result => {
+        res.status(200).json(result.rows);
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
+
 // @route   POST api/subject/new
 // @desc    Register Subject
 // @access  Public
@@ -16,39 +36,51 @@ router.post(
   [
     check("name", "Name is required!")
       .not()
+      .bail()
       .isEmpty()
+      .bail()
       .isString(),
     check("classroomid", "ClassroomID is required!")
       .not()
+      .bail()
       .isEmpty()
+      .bail()
       .isInt(),
     check("teacherid", "TeacherID is required!")
       .not()
+      .bail()
       .isEmpty()
+      .bail()
+      .isInt(),
+    check("gradeid", "GradeID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
       .isInt()
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ msg: errors.array() });
     }
-    const { classroomid, teacherid, name } = req.body;
+    const { classroomid, teacherid, name, gradeid } = req.body;
 
     try {
       // Check student already in database
       await DB.query(
-        `SELECT name,classroomid,teacherid FROM subjects where name='${name.trim()}' and classroomid=${classroomid} and teacherid=${teacherid}`
+        `SELECT name,classroomid,teacherid,gradeid FROM subjects where name='${name.trim()}' and classroomid=${classroomid} and teacherid=${teacherid} and gradeid=${gradeid}`
       )
         .then(async results => {
           if (results.rows.length > 0) {
-            return res
-              .status(401)
-              .json({ msg: "This Subject is already in the database!" });
+            return res.status(401).json({
+              msg: [{ msg: "This Subject is already in the database!" }]
+            });
           } else {
             //Save Department To DB
             await DB.query(
-              "INSERT INTO subjects(classroomid,teacherid,name) VALUES($1,$2,$3) RETURNING id",
-              [classroomid, teacherid, name.trim()]
+              "INSERT INTO subjects(classroomid,teacherid,name,gradeid) VALUES($1,$2,$3,$4) RETURNING id",
+              [classroomid, teacherid, name.trim(), gradeid]
             )
               .then(results => {
                 res.json({ subjectID: results.rows[0].id });
@@ -59,7 +91,7 @@ router.post(
           }
         })
         .catch(e => {
-          res.status(401).json({ msg: "Database error!" });
+          res.status(400).json({ msg: "Database error!" });
         });
     } catch (e) {
       console.error(e.message);

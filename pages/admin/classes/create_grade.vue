@@ -1,8 +1,8 @@
 <template>
-  <div class="Class_Add">
+  <div class="Grade_Add">
     <div class="card card-cyan">
       <div class="card-header">
-        <h3 class="card-title">Add Classroom</h3>
+        <h3 class="card-title">Add Grade</h3>
       </div>
       <div class="errors_text" v-if="errors.length">
         <b>Please correct the following error(s):</b>
@@ -13,13 +13,13 @@
 
       <form class="card-body">
         <div class="form-group">
-          <label>Room Number</label>
-          <input v-model="roomnumber" type="text" class="form-control" />
+          <label>Grade</label>
+          <input v-model="grade" type="text" class="form-control" />
         </div>
       </form>
 
-      <button class="btn btn-info mt-2" @click.prevent="addClassroom">
-        Add Classroom
+      <button class="btn btn-info mt-2" @click.prevent="addGrade">
+        Add Grade
       </button>
       <!-- /.card-body -->
     </div>
@@ -30,7 +30,7 @@
 export default {
   data() {
     return {
-      roomnumber: null,
+      grade: null,
       errors: []
     };
   },
@@ -38,14 +38,14 @@ export default {
     checkErrors() {
       this.errors = [];
       if (
-        this.roomnumber === null ||
-        this.roomnumber === undefined ||
-        this.roomnumber === ""
+        this.grade === null ||
+        this.grade === undefined ||
+        this.grade === ""
       ) {
-        this.errors.push("Room Number Can't be empty!");
+        this.errors.push("Grade Can't be empty!");
       }
     },
-    addClassroom() {
+    addGrade() {
       this.checkErrors();
       if (this.errors.length === 0) {
         const Toast = this.$swal.mixin({
@@ -60,15 +60,15 @@ export default {
           }
         });
         const data = {
-          name: this.roomnumber
+          name: this.grade
         };
         this.$axios
-          .post("/api/classroom/new", data)
+          .post("/api/grade/new", data)
           .then(async res => {
-            this.roomnumber = null;
+            this.grade = null;
             Toast.fire({
               icon: "success",
-              title: "ClassRoom Created"
+              title: "Grade Created"
             });
           })
           .catch(e => {
@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Class_Add {
+.Grade_Add {
   margin: 50px 30px 0 30px;
   .errors_text {
     display: flex;

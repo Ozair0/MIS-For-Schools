@@ -27,6 +27,23 @@ router.get("/all", (req, res) => {
     res.status(400).json({ e });
   }
 });
+// @route   POST api/parent/allinfo
+// @desc    Get All Parents NAME & ID
+// @access  Public
+router.get("/allinfo", (req, res) => {
+  try {
+    DB.query(`select id,name,lastname from parents;`)
+      .then(result => {
+        res.status(200).json(result.rows);
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
 // @route   POST api/parent/new
 // @desc    Register Parent
 // @access  Public

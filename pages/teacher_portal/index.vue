@@ -1,5 +1,5 @@
 <template>
-  <div class="Admin_Content">
+  <div class="Teacher_Content">
     <button class="btn btn-primary Admission_BTN shadow">
       New Admission
     </button>
@@ -234,7 +234,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Admin_Content {
+.Teacher_Content {
   display: flex;
   flex-direction: column;
   margin: 10px 10px 0 10px;

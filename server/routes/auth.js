@@ -117,7 +117,6 @@ router.post(
         await DB.query("SELECT * FROM students where userid = $1", [userid])
           .then(res => {
             user = res.rows[0];
-            console.log("works");
           })
           .catch(e => {
             throw e;
@@ -154,7 +153,6 @@ router.post(
           .json({ errors: [{ msg: "Invalid Credentials" }] });
       }
       const isMatch = await bcrypt.compare(password, user.password);
-
       if (!isMatch) {
         return res
           .status(400)

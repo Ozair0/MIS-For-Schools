@@ -1,19 +1,19 @@
 <template>
-  <div class="All_Class">
-    <div class="Class_Upper">
-      <p class="Class_Title">All Classrooms</p>
-      <div class="Class_Left">
+  <div class="All_Grade">
+    <div class="Grade_Upper">
+      <p class="Grade_Title">All Grades</p>
+      <div class="Grade_Left">
         <div class="btn-group">
           <button type="button" class="btn btn-info">
             Generate Report
           </button>
         </div>
         <button
-          @click.prevent="AddClass"
+          @click.prevent="AddGrade"
           class="btn btn-outline-primary shadow"
           style="border-radius: 25px;margin-left: 20px; border: none;"
         >
-          <fa :icon="faUserPlus" /> New Classroom
+          <fa :icon="faUserPlus" /> New Grade
         </button>
       </div>
     </div>
@@ -25,15 +25,15 @@
             <thead>
               <tr>
                 <th>
-                  Classroom Number
+                  Grade
                 </th>
                 <th class="text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(classroom, index) in classrooms" :key="index">
+              <tr v-for="(grade, index) in grades" :key="index">
                 <td>
-                  <a> {{ classroom.roomnumber }} </a>
+                  <a> {{ grade.gradenumber }} </a>
                 </td>
                 <td class="project-actions text-center">
                   <a class="btn btn-primary btn-sm" href="#">
@@ -71,37 +71,37 @@ export default {
   },
   data() {
     return {
-      classrooms: []
+      grades: []
     };
   },
   created() {
-    this.$axios.get("/api/classroom/all").then(res => {
-      this.classrooms = res.data;
+    this.$axios.get("/api/grade/all").then(res => {
+      this.grades = res.data;
     });
   },
   methods: {
-    AddClass() {
-      this.$router.push("classes/create_class");
+    AddGrade() {
+      this.$router.push("create_grade");
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.All_Class {
+.All_Grade {
   margin: 10px 10px 0 30px;
   display: flex;
   flex-direction: column;
-  .Class_Upper {
+  .Grade_Upper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .Class_Title {
+    .Grade_Title {
       font-size: 20px;
       font-weight: bold;
       margin: 0;
     }
-    .Class_Left {
+    .Grade_Left {
       display: flex;
     }
   }

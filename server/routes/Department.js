@@ -6,9 +6,26 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const auth = require("../middleware/auth");
 const DB = require("../../config/db");
+// @route   POST api/department/allinfo
+// @desc    Get All Department NAME & ID
+// @access  Public
+router.get("/allinfo", (req, res) => {
+  try {
+    DB.query(`select id,name from department where name != 'Admin';`)
+      .then(result => {
+        res.status(200).json(result.rows);
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
 
-// @route   POST api/student/new
-// @desc    Register Student
+// @route   POST api/department/new
+// @desc    Register Departments
 // @access  Public
 
 router.post(

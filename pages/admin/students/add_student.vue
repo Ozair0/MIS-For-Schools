@@ -25,8 +25,13 @@
             <label>Select School</label>
             <select v-model="schoolid" class="form-control custom-select">
               <option selected="" disabled="">Select one</option>
-              <option value="1">KIS Taimani</option>
-              <option value="2">KIS Parwan 2</option>
+              <option
+                v-for="(school, index) in schools"
+                :key="index"
+                :value="school.id"
+              >
+                {{ school.schoolname }}
+              </option>
             </select>
           </div>
           <div class="form-group">
@@ -43,9 +48,13 @@
             <label>Select Parent</label>
             <select v-model="parentid" class="form-control custom-select">
               <option selected="" disabled="">Select one</option>
-              <option value="1">Mahmood</option>
-              <option value="2">Khan</option>
-              <option value="3">Test</option>
+              <option
+                v-for="(parent, index) in parents"
+                :key="index"
+                :value="parent.id"
+              >
+                {{ parent.name }} {{ parent.lastname }}
+              </option>
             </select>
           </div>
           <div class="form-group">
@@ -89,9 +98,12 @@
             <label>Select Grade</label>
             <select v-model="gradeid" class="form-control custom-select">
               <option selected="" disabled="">Select one</option>
-              <option value="1">Grade 1</option>
-              <option value="2">Grade 2</option>
-              <option value="3">Grade 3</option>
+              <option
+                v-for="(grade, index) in grades"
+                :key="index"
+                :value="grade.id"
+                >{{ grade.gradenumber }}</option
+              >
             </select>
           </div>
           <div class="form-group">
@@ -130,10 +142,23 @@ export default {
       gradeid: null,
       gender: null,
       dob: null,
-      errors: []
+      errors: [],
+      parents: [],
+      grades: [],
+      schools: []
     };
   },
-  created() {},
+  created() {
+    this.$axios.get("/api/parent/allinfo").then(res => {
+      this.parents = res.data;
+    });
+    this.$axios.get("/api/school/allinfo").then(res => {
+      this.schools = res.data;
+    });
+    this.$axios.get("/api/grade/allinfo").then(res => {
+      this.grades = res.data;
+    });
+  },
   methods: {
     showAlert() {},
     onFileChange() {

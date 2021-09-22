@@ -25,8 +25,13 @@
             <label>Select School</label>
             <select v-model="schoolid" class="form-control custom-select">
               <option selected="" disabled="">Select one</option>
-              <option value="1">KIS Taimani</option>
-              <option value="2">KIS Parwan 2</option>
+              <option
+                v-for="(school, index) in schools"
+                :key="index"
+                :value="school.id"
+              >
+                {{ school.schoolname }}
+              </option>
             </select>
           </div>
           <div class="form-group">
@@ -43,9 +48,13 @@
             <label>Select Department</label>
             <select v-model="departmentid" class="form-control custom-select">
               <option selected="" disabled="">Select one</option>
-              <option value="1">BCS</option>
-              <option value="2">HTS</option>
-              <option value="3">IOM</option>
+              <option
+                v-for="(department, index) in departments"
+                :key="index"
+                :value="department.id"
+              >
+                {{ department.name }}
+              </option>
             </select>
           </div>
           <div class="form-group">
@@ -121,10 +130,20 @@ export default {
       salary: null,
       salarytype: null,
       dob: null,
-      errors: []
+      errors: [],
+      schools: [],
+      departments: []
     };
   },
-  created() {},
+  created() {
+    this.$axios.get("/api/school/allinfo").then(res => {
+      this.schools = res.data;
+    });
+    this.$axios.get("/api/department/allinfo").then(res => {
+      this.departments = res.data;
+    });
+  },
+
   methods: {
     showAlert() {},
     onFileChange() {
