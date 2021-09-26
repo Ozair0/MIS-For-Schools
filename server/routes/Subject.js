@@ -7,13 +7,34 @@ const config = require("config");
 const auth = require("../middleware/auth");
 const DB = require("../../config/db");
 
-// @route   POST api/subject/all
+// @route   GET api/subject/all
 // @desc    Get All Subjects
 // @access  Public
 router.get("/all", (req, res) => {
   try {
     DB.query(
       `select s.name as subject,c.roomnumber,t.name as teacher, g.gradenumber  from subjects as s inner join classroom c on c.id = s.classroomid inner join teachers t on s.teacherid = t.id inner join grade g on s.gradeid = g.id;`
+    )
+      .then(result => {
+        res.status(200).json(result.rows);
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
+
+// @route   GET api/subject/subjectThoughtByTeacher
+// @desc    Get All Subjects Thought By Teacher
+// @access  Public
+router.get("/subjectThoughtByTeacher",auth, (req, res) => {
+
+  try {
+    DB.query(
+      `select s.id, s.name, c.roomnumber, g.gradenumber from subjects s inner join classroom c on c.id = s.classroomid inner join grade g on s.gradeid = g.id where teacherid=${req.user.id} and active=true`
     )
       .then(result => {
         res.status(200).json(result.rows);

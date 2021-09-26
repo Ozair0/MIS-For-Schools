@@ -77,19 +77,37 @@ export default {
       return this.$store.state.sidebar.sidebar;
     },
     menuItems() {
-      return this.$store.state.menuList.menuItems;
+      if(this.$route.path.toString().includes("teacher_portal")){
+        return this.$store.state.teacherPortalMenuList.menuItems;
+      }else{
+        return this.$store.state.menuList.menuItems;
+      }
+
     }
   },
 
   methods: {
     selectItem(menuItemIndex) {
-      this.$store.commit("menuList/changeMenuItems", { menuItemIndex });
+      if(this.$route.path.toString().includes("teacher_portal")){
+        this.$store.commit("teacherPortalMenuList/changeMenuItems", { menuItemIndex });
+      }else{
+        this.$store.commit("menuList/changeMenuItems", { menuItemIndex });
+      }
+
     },
     selectSubItem(menuItemIndex, menuSubItemIndex) {
-      this.$store.commit("menuList/changeMenuSubItems", {
-        menuItemIndex,
-        menuSubItemIndex
-      });
+      if(this.$route.path.toString().includes("teacher_portal")){
+        this.$store.commit("teacherPortalMenuList/changeMenuSubItems", {
+          menuItemIndex,
+          menuSubItemIndex
+        });
+      }else{
+        this.$store.commit("menuList/changeMenuSubItems", {
+          menuItemIndex,
+          menuSubItemIndex
+        });
+      }
+
     }
   }
 };

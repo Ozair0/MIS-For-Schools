@@ -12,7 +12,7 @@
             @click.prevent="logOut()"
           >
             Logout
-          </button>
+        </button>
         </div>
       </div>
       <Nuxt />

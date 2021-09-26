@@ -8,6 +8,7 @@ import {
   faBuilding,
   faChalkboard
 } from "@fortawesome/free-solid-svg-icons";
+
 export const state = () => ({
   menuItems: [
     { title: "Home", active: true, subMenu: [], page: "/admin", icon: faHome },
