@@ -32,7 +32,7 @@
                 <a> {{ subject.gradenumber }} </a>
               </td>              <td>
                 <a> {{ subject.roomnumber }} </a>
-              </td>
+              </td> 
               <td class="project-actions text-center">
                 <nuxt-link :to="`attendance/${subject.id}/${new Date().getFullYear()}-${new Date().getMonth()+1 < 10 ? '0'+(new Date().getMonth()+1):new Date().getMonth()+1}-${new Date().getDate() < 10 ? '0'+new Date().getDate():new Date().getDate()}`" class="btn btn-primary btn-sm">
                   <i class="fas fa-folder"> </i>

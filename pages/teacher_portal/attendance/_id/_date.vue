@@ -74,6 +74,7 @@ export default {
       dateC: null
     }
   },
+
   asyncData({params, redirect, $axios}) {
     const data = {
       adate: `${params.date}`,
