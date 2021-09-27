@@ -90,3 +90,6 @@ sw.*
 *.swp
 
 /static/Uploads/Students/*.*
+/static/Uploads/Teachers/*.*
+/static/Uploads/Employees/*.*
+/static/Uploads/Parents/*.*
