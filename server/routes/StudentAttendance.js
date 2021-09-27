@@ -36,7 +36,7 @@ router.post(
     try {
       // Check student already in database
       await DB.query(
-        `select s2.name, s2.userid, s3.adate,s3.present from subjectselected s inner join students s2 on s.studentid = s2.id left join studentsattendance s3 on s.id = s3.subjectid and s3.adate = '${adate}' where s.subjectid = ${subjectid} and s.active = true;`
+        `select s2.id as id, s2.name, s2.userid, s3.adate,s3.present,s.id as subjectid from subjectselected s inner join students s2 on s.studentid = s2.id left join studentsattendance s3 on s.id = s3.subjectid and s3.adate = '${adate}' where s.subjectid = ${subjectid} and s.active = true;`
       )
         .then(results => {
           res.status(200).json(results.rows);
@@ -51,7 +51,8 @@ router.post(
   }
 );
 
-// @route   POST api/studentsattendance/allowed
+
+// @route   POST api/studentattendance/allowed
 // @desc    Get Attendance Permission allowed
 // @access  Public
 
@@ -126,16 +127,29 @@ router.post(
     try {
       // Check student already in database
       await DB.query(
-        `SELECT adate,studentid FROM studentsattendance where adate='${adate}' and studentid=${studentid} and subjectid=${subjectid}`
+        `SELECT adate,studentid,present FROM studentsattendance where adate='${adate}' and studentid=${studentid} and subjectid=${subjectid}`
       )
         .then(async results => {
-          if (results.rows.length > 0) {
-            return res.status(401).json({
-              msg:
-                "Student attendance is already in the database. Try to update!"
-            });
+          if (results.rows.length > 0 ) {
+            if(results.rows[0].present === present){
+              return res.status(401).json({
+                msg:
+                  "Student attendance is already in the database. Try to update!"
+              });
+            }else{
+              //Update Student Attendance
+              await DB.query(
+                `update studentsattendance set present=${present} where adate='${adate}' and studentid=${studentid} and subjectid=${subjectid} RETURNING id`
+              )
+                .then(results => {
+                  res.json({ studentAttendanceID: results.rows[0].id });
+                })
+                .catch(e => {
+                  throw e;
+                });
+            }
           } else {
-            //Save Department To DB
+            //Save Student Attendance
             await DB.query(
               "INSERT INTO studentsattendance(adate, studentid,subjectid, present) VALUES($1,$2,$3,$4) RETURNING id",
               [adate, studentid,subjectid ,present]

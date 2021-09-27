@@ -2,6 +2,7 @@
   <div class="All_Class">
     <div class="Class_Upper">
       <p class="Class_Title">All Subjects Currently Teaching</p>
+
     </div>
     <section class="content">
       <!-- Default box -->
