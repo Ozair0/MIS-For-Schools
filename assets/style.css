@@ -16,3 +16,10 @@ body {
 * {
   font-family: Roboto, serif;
 }
+
+.swal2-title {
+  font-size: 1.4rem !important;
+}
+.swal2-html-container {
+  font-size: 0.9rem !important;
+}

@@ -21,11 +21,11 @@ export const state = () => ({
         //   active: false,
         //   page: "/add_student"
         // },
-        // {
-        //   title: "Upload Resources",
-        //   active: false,
-        //   page: "/add_student"
-        // }
+        {
+          title: "Upload Marks",
+          active: false,
+          page: "/upload_marks"
+        }
       ],
       page: "/teacher_portal/subjects",
       icon: faUserGraduate

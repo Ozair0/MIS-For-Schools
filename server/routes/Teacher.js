@@ -27,6 +27,34 @@ router.get("/allinfo", (req, res) => {
   }
 });
 
+
+// @route   GET api/teacher/bygrade
+// @desc    Get All Teachers By Grade
+// @access  Public
+router.get("/bygrade", (req, res) => {
+  if(req.query.id) {
+
+    try {
+      DB.query(
+        `select id,name,lastname from teachers where gradeid = ${req.query.id}`
+      )
+        .then(result => {
+          res.status(200).json(result.rows);
+        })
+        .catch(e => {
+          console.log(e);
+          res.status(400).json({e});
+        });
+    } catch (e) {
+      res.status(400).json({e});
+    }
+  }else{
+    res.status(401).json({
+      msg: [{ msg: "ID Required" }]
+    });
+  }
+});
+
 // @route   POST api/teacher/
 // @desc    Get Teacher Total
 // @access  Public
@@ -101,6 +129,10 @@ router.post(
       .not()
       .bail()
       .isEmpty(),
+    check("gradeid", "Please Include GradeID")
+      .not()
+      .bail()
+      .isEmpty(),
     check(
       "password",
       "Please enter a password with 6 or more characters"
@@ -153,7 +185,8 @@ router.post(
       address,
       salary,
       salarytype,
-      dob
+      dob,
+      gradeid
     } = req.body;
 
     try {
@@ -171,7 +204,8 @@ router.post(
         address,
         salary,
         salarytype,
-        dob
+        dob,
+        gradeid
       };
       // Check student already in database
       DB.query(`SELECT userid FROM teachers where userid='${user.userid}'`)
@@ -186,7 +220,7 @@ router.post(
             user.password = await bcrypt.hash(password, salt);
             //Save User To DB
             await DB.query(
-              "INSERT INTO teachers(schoolid, departmentid, userid, password, type, name, lastname, address, salary, salarytype,dob) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING id",
+              "INSERT INTO teachers(schoolid, departmentid, userid, password, type, name, lastname, address, salary, salarytype,dob,gradeid) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING id",
               [
                 user.schoolid,
                 user.departmentid,
@@ -199,7 +233,8 @@ router.post(
                 user.address,
                 user.salary,
                 user.salarytype === "1" ? "AFN" : "USD",
-                user.dob
+                user.dob,
+                user.gradeid
               ]
             )
               .then(results => {

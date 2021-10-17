@@ -43,6 +43,7 @@ async function start() {
   app.use("/api/salary", require("./routes/Salary"));
   app.use("/api/examtimetable", require("./routes/ExamTimetable"));
   app.use("/api/fee", require("./routes/Fee"));
+  app.use("/api/time", require("./routes/Times"));
   app.use("/api/school", require("./routes/School"));
 
   // Give nuxt middleware to express

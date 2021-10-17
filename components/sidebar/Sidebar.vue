@@ -19,7 +19,7 @@
       <span class="fs-4">KIS</span>
     </a>
     <hr />
-    <div class="user-panel pb-1 mb-3 d-flex">
+    <div class="user-panel pb-1 mb-3 d-flex" style="overflow:unset !important;">
       <div class="image">
         <nuxt-img
           src="/OurTeam/Naseerullah.png"
@@ -77,37 +77,36 @@ export default {
       return this.$store.state.sidebar.sidebar;
     },
     menuItems() {
-      if(this.$route.path.toString().includes("teacher_portal")){
+      if (this.$route.path.toString().includes("teacher_portal")) {
         return this.$store.state.teacherPortalMenuList.menuItems;
-      }else{
+      } else {
         return this.$store.state.menuList.menuItems;
       }
-
     }
   },
 
   methods: {
     selectItem(menuItemIndex) {
-      if(this.$route.path.toString().includes("teacher_portal")){
-        this.$store.commit("teacherPortalMenuList/changeMenuItems", { menuItemIndex });
-      }else{
+      if (this.$route.path.toString().includes("teacher_portal")) {
+        this.$store.commit("teacherPortalMenuList/changeMenuItems", {
+          menuItemIndex
+        });
+      } else {
         this.$store.commit("menuList/changeMenuItems", { menuItemIndex });
       }
-
     },
     selectSubItem(menuItemIndex, menuSubItemIndex) {
-      if(this.$route.path.toString().includes("teacher_portal")){
+      if (this.$route.path.toString().includes("teacher_portal")) {
         this.$store.commit("teacherPortalMenuList/changeMenuSubItems", {
           menuItemIndex,
           menuSubItemIndex
         });
-      }else{
+      } else {
         this.$store.commit("menuList/changeMenuSubItems", {
           menuItemIndex,
           menuSubItemIndex
         });
       }
-
     }
   }
 };

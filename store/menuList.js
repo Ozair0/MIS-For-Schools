@@ -48,6 +48,11 @@ export const state = () => ({
           title: "Promote Student",
           active: false,
           page: "/add_student"
+        },
+        {
+          title: "Promote All Student",
+          active: false,
+          page: "/add_student"
         }
       ],
       page: "/admin/students",
@@ -125,7 +130,7 @@ export const state = () => ({
           title: "Manage Grades",
           active: false,
           page: "/manage_grades"
-        },
+        }
       ],
       page: "/admin/classes",
       icon: faSchool
@@ -138,6 +143,16 @@ export const state = () => ({
           title: "Create Subject",
           active: false,
           page: "/create_subject"
+        },
+        {
+          title: "Select Subjects",
+          active: false,
+          page: "/select_subject"
+        },
+        {
+          title: "Manage Subject Selection",
+          active: false,
+          page: "/manage_subject_selection"
         }
       ],
       page: "/admin/subjects",

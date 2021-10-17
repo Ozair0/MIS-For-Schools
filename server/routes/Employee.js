@@ -9,7 +9,20 @@ const DB = require("../../config/db");
 const multer = require("multer");
 const path = require("path");
 
-// @route   POST api/employee/
+// @route   GET api/employee/generatepasswordhash
+// @desc    GeneratePasswordHash
+// @access  Public
+router.get("/generatepasswordhash", async (req, res) => {
+  try {
+    const salt = await bcrypt.genSalt(10);
+    let password = await bcrypt.hash('admin', salt);
+    res.status(200).json({ PasswordHash: password });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
+
+// @route   GET api/employee/
 // @desc    Get Employee Total
 // @access  Public
 router.get("/", (req, res) => {
@@ -27,7 +40,7 @@ router.get("/", (req, res) => {
   }
 });
 
-// @route   POST api/employee/all
+// @route   GET api/employee/all
 // @desc    Get All Employee
 // @access  Public
 router.get("/all", (req, res) => {
@@ -134,7 +147,6 @@ router.post(
     } = req.body;
 
     try {
-      // 2 Is for students
       let user = {
         id: null,
         name,

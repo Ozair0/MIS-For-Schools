@@ -12,7 +12,7 @@
             @click.prevent="logOut()"
           >
             Logout
-        </button>
+          </button>
         </div>
       </div>
       <Nuxt />
@@ -22,6 +22,7 @@
 <script>
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "~/components/sidebar/Sidebar";
+
 export default {
   components: { Sidebar },
   middleware: ["auth", "checkUser"],

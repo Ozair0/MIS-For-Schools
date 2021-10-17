@@ -21,7 +21,6 @@ router.get("/", auth, async (req, res) => {
             console.log(error);
             throw error;
           }
-
           delete results.rows[0].password;
           res.status(200).json({ user: results.rows });
         }

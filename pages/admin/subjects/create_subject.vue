@@ -18,18 +18,6 @@
             <input v-model="subject" type="text" class="form-control" />
           </div>
           <div class="form-group">
-            <label>Select Teacher</label>
-            <select v-model="teacher" class="form-control custom-select">
-              <option selected="" disabled="">Select one</option>
-              <option
-                v-for="(teacher, index) in teachers"
-                :key="index"
-                :value="teacher.id"
-              >{{ teacher.name }} {{ teacher.lastname }}</option
-              >
-            </select>
-          </div>
-          <div class="form-group">
             <label>Select Grade</label>
             <select v-model="grade" class="form-control custom-select">
               <option selected="" disabled="">Select one</option>
@@ -38,18 +26,6 @@
                 :key="index"
                 :value="grade.id"
               >{{ grade.gradenumber }}</option
-              >
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Select Classroom</label>
-            <select v-model="classroom" class="form-control custom-select">
-              <option selected="" disabled="">Select one</option>
-              <option
-                v-for="(classroom, index) in classrooms"
-                :key="index"
-                :value="classroom.id"
-              >{{ classroom.roomnumber }}</option
               >
             </select>
           </div>
@@ -69,24 +45,14 @@ export default {
   data() {
     return {
       subject: null,
-      teacher: null,
       grade: null,
-      classroom: null,
       errors: [],
-      teachers: [],
       grades: [],
-      classrooms: []
     };
   },
   created() {
-    this.$axios.get("/api/teacher/allinfo").then(res => {
-      this.teachers = res.data;
-    });
     this.$axios.get("/api/grade/allinfo").then(res => {
       this.grades = res.data;
-    });
-    this.$axios.get("/api/classroom/allinfo").then(res => {
-      this.classrooms = res.data;
     });
   },
   methods: {
@@ -106,20 +72,6 @@ export default {
       ) {
         this.errors.push("Grade Can't be empty!");
       }
-      if (
-        this.classroom === null ||
-        this.classroom === undefined ||
-        this.classroom === ""
-      ) {
-        this.errors.push("Classroom Can't be empty!");
-      }
-      if (
-        this.teacher === null ||
-        this.teacher === undefined ||
-        this.teacher === ""
-      ) {
-        this.errors.push("Teacher Can't be empty!");
-      }
     },
     addSubject() {
       this.checkErrors();
@@ -137,16 +89,12 @@ export default {
         });
         const data = {
           name: this.subject,
-          classroomid: this.classroom,
-          teacherid: this.teacher,
           gradeid: this.grade
         };
         this.$axios
           .post("/api/subject/new", data)
           .then(async res => {
             this.subject = null;
-            this.classroom = null;
-            this.teacher = null;
             this.grade = null;
             Toast.fire({
               icon: "success",
@@ -183,7 +131,7 @@ export default {
     display: flex;
     justify-content: space-between;
     .form-group {
-      flex: 0 0 23%;
+      flex: 0 0 45%;
     }
   }
 }

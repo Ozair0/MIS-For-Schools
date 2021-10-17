@@ -95,6 +95,13 @@
             <input v-model="dob" type="date" class="form-control" />
           </div>
           <div class="form-group">
+            <label>Select Grade</label>
+            <select v-model="selectedGrade" class="form-control custom-select">
+              <option selected="" disabled="">Select one</option>
+              <option v-for="grade in grades" :key="grade.id" :value="grade.id">{{grade.gradenumber}}</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="inputProjectLeader">Address</label>
             <input
               v-model="address"
@@ -129,6 +136,8 @@ export default {
       address: null,
       salary: null,
       salarytype: null,
+      grades: [],
+      selectedGrade: null,
       dob: null,
       errors: [],
       schools: [],
@@ -141,6 +150,9 @@ export default {
     });
     this.$axios.get("/api/department/allinfo").then(res => {
       this.departments = res.data;
+    });
+    this.$axios.get("/api/grade/allinfo").then(res => {
+      this.grades = res.data;
     });
   },
 
@@ -207,6 +219,14 @@ export default {
         this.errors.push("Salary Type Can't be empty!");
       }
       if (
+        this.selectedGrade === null ||
+        this.selectedGrade === undefined ||
+        this.selectedGrade === ""
+      ) {
+        this.errors.push("Grade Can't be empty!");
+      }
+
+      if (
         this.selectedImage === null ||
         this.selectedImage === undefined ||
         this.selectedImage === ""
@@ -247,7 +267,8 @@ export default {
           address: this.address,
           salary: this.salary,
           salarytype: this.salarytype,
-          dob: this.dob
+          dob: this.dob,
+          gradeid: this.selectedGrade
         };
         this.$axios
           .post("/api/teacher/new", data)
@@ -273,6 +294,7 @@ export default {
                 this.salary = "";
                 this.salarytype = "";
                 this.dob = "";
+                this.selectedGrade = "";
                 Toast.fire({
                   icon: "success",
                   title: "Teacher added successfully"
