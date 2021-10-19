@@ -4,8 +4,8 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
-const auth = require("../middleware/auth");
 const DB = require("../../config/db");
+const auth = require("../middleware/auth");
 
 // @route   POST api/studentsattendance/getStudentsAttendanceBySubjectID
 // @desc    Get StudentsAttendance
@@ -51,7 +51,6 @@ router.post(
   }
 );
 
-
 // @route   POST api/studentattendance/allowed
 // @desc    Get Attendance Permission allowed
 // @access  Public
@@ -73,17 +72,20 @@ router.post(
     }
 
     const { adate } = req.body;
-    dateNow = new Date()
-    dateGiven = new Date(Date.parse(adate))
-    if((dateNow.getFullYear() === dateGiven.getFullYear() && dateNow.getMonth() === dateGiven.getMonth()) && (dateGiven.getDate() <= dateNow.getDate() && dateGiven.getDate() >= dateNow.getDate() - 5)){
-      res.status(200).json({allowed: true});
-    }else{
-      res.status(200).json({allowed: false});
+    dateNow = new Date();
+    dateGiven = new Date(Date.parse(adate));
+    if (
+      dateNow.getFullYear() === dateGiven.getFullYear() &&
+      dateNow.getMonth() === dateGiven.getMonth() &&
+      dateGiven.getDate() <= dateNow.getDate() &&
+      dateGiven.getDate() >= dateNow.getDate() - 5
+    ) {
+      res.status(200).json({ allowed: true });
+    } else {
+      res.status(200).json({ allowed: false });
     }
   }
 );
-
-
 
 // @route   POST api/studentsattendance/new
 // @desc    Register StudentsAttendance
@@ -122,7 +124,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { adate, studentid, subjectid,present } = req.body;
+    const { adate, studentid, subjectid, present } = req.body;
 
     try {
       // Check student already in database
@@ -130,13 +132,13 @@ router.post(
         `SELECT adate,studentid,present FROM studentsattendance where adate='${adate}' and studentid=${studentid} and subjectid=${subjectid}`
       )
         .then(async results => {
-          if (results.rows.length > 0 ) {
-            if(results.rows[0].present === present){
+          if (results.rows.length > 0) {
+            if (results.rows[0].present === present) {
               return res.status(401).json({
                 msg:
                   "Student attendance is already in the database. Try to update!"
               });
-            }else{
+            } else {
               //Update Student Attendance
               await DB.query(
                 `update studentsattendance set present=${present} where adate='${adate}' and studentid=${studentid} and subjectid=${subjectid} RETURNING id`
@@ -152,7 +154,7 @@ router.post(
             //Save Student Attendance
             await DB.query(
               "INSERT INTO studentsattendance(adate, studentid,subjectid, present) VALUES($1,$2,$3,$4) RETURNING id",
-              [adate, studentid,subjectid ,present]
+              [adate, studentid, subjectid, present]
             )
               .then(results => {
                 res.json({ studentAttendanceID: results.rows[0].id });

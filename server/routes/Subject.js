@@ -133,7 +133,7 @@ router.get("/subjectbygrade", async (req, res) => {
     try {
       // Check student already in database
       await DB.query(
-        `select s.id,stbt.id as ssid,t.id as tid,t.name as tname,t.lastname tlastname, c.id as cid, c.roomnumber as roomnumber, s2.id as sid,s2.stime as stime,e.id as eid, e.etime as etime from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid inner join teachers t on t.id = stbt.teacherid inner join classroom c on c.id = stbt.classroomid inner join starttime s2 on s2.id = stbt.start inner join endtime e on e.id = stbt."end" where s.gradeid = ${req.query.gradeid} and stbt.active = true order by stbt.id;`
+        `select s.id,stbt.id as ssid,t.id as tid,t.name as tname,t.lastname tlastname, c.id as cid, c.roomnumber as roomnumber, s2.id as sid,s2.stime as stime,e.id as eid, e.etime as etime from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid inner join teachers t on t.id = stbt.teacherid inner join classroom c on c.id = stbt.classroomid inner join starttime s2 on s2.id = stbt.start inner join endtime e on e.id = stbt."end" where s.gradeid = ${req.query.gradeid} and stbt.active = false and stbt.ended=false order by stbt.id;`
       )
         .then(results => {
           res.json(results.rows);
@@ -160,7 +160,7 @@ router.get("/subjectgradecheck", async (req, res) => {
     try {
       // Check student already in database
       await DB.query(
-        `select s.id from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid where s.gradeid = ${req.query.gradeid} and stbt.active = true;`
+        `select s.id from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid where s.gradeid = ${req.query.gradeid} and stbt.active = false and stbt.ended = false;`
       )
         .then(results => {
           if (results.rows.length > 0) {
@@ -298,7 +298,6 @@ router.post(
     const { studentid, subjectid, dateselected } = req.body;
 
     try {
-      // Check student already in database
       await DB.query(
         `SELECT studentid,subjectid,dateselected FROM subjectselected where studentid=${studentid} and subjectid=${subjectid} and date_part('year', dateselected) = ${new Date(
           dateselected
@@ -312,7 +311,6 @@ router.post(
               ).getFullYear()}`
             });
           } else {
-            //Save Department To DB
             await DB.query(
               "INSERT INTO subjectselected(studentid,subjectid,dateselected) VALUES($1,$2,$3) RETURNING id",
               [studentid, subjectid, dateselected]
@@ -367,17 +365,23 @@ router.post(
     const { subjectselectedid, fscore, sscore, totalscore } = req.body;
 
     try {
-      // Check student already in database
+      // sscore
       await DB.query(
-        `SELECT subjectselectedid FROM marks where subjectselectedid=${subjectselectedid}`
+        `SELECT subjectselectedid FROM marks where subjectselectedid=${subjectselectedid} and (sscore = 0 or fscore=0)`
       )
         .then(async results => {
           if (results.rows.length > 0) {
-            return res.status(401).json({
-              msg: `This Subject score is already added in the database!`
-            });
+            await DB.query(
+              "UPDATE marks set fscore=$2, sscore=$3, totalscore=$4 where subjectselectedid=$1 RETURNING id",
+              [subjectselectedid, fscore, sscore, totalscore]
+            )
+              .then(results => {
+                res.json({ subjectScoreID: results.rows[0].id });
+              })
+              .catch(e => {
+                throw e;
+              });
           } else {
-            //Save Department To DB
             await DB.query(
               "INSERT INTO marks(subjectselectedid, fscore, sscore, totalscore) VALUES($1,$2,$3,$4) RETURNING id",
               [subjectselectedid, fscore, sscore, totalscore]
@@ -392,6 +396,7 @@ router.post(
         })
         .catch(e => {
           res.status(401).json({ msg: "Database error!" });
+          console.log(e);
         });
     } catch (e) {
       console.error(e.message);
@@ -440,7 +445,6 @@ router.post(
     const { subjectid, teacherid, classroomid, start, end, time } = req.body;
     // date_part('year', dateselected) = ${new Date(dateselected).getFullYear()}
     try {
-      // Check student already in database
       await DB.query(
         `SELECT subjectid FROM subjects_thought_by_teachers where subjectid=${subjectid} and active=true;`
       )
@@ -450,7 +454,6 @@ router.post(
               msg: `This Subject is already created!`
             });
           } else {
-            //Save Department To DB
             await DB.query(
               `INSERT INTO subjects_thought_by_teachers(subjectid, teacherid, classroomid, start, "end", time) VALUES($1,$2,$3,$4,$5,$6) RETURNING id`,
               [subjectid, teacherid, classroomid, start, end, time]
@@ -526,7 +529,7 @@ router.post(
     // date_part('year', dateselected) = ${new Date(dateselected).getFullYear()}
     try {
       await DB.query(
-        `SELECT id FROM subjects_thought_by_teachers where id=${id} and active=true;`
+        `SELECT id FROM subjects_thought_by_teachers where id=${id} and active=false and ended=false;`
       )
         .then(async results => {
           if (results.rows.length > 0) {
@@ -541,9 +544,22 @@ router.post(
                 throw e;
               });
           } else {
-            return res.status(401).json({
-              msg: `This Subject is Not In The Database!`
-            });
+            if (id === 0) {
+              await DB.query(
+                `INSERT INTO subjects_thought_by_teachers(subjectid, teacherid, classroomid, start, "end", time) VALUES($1,$2,$3,$4,$5,$6) RETURNING id`,
+                [subjectid, teacherid, classroomid, start, end, time]
+              )
+                .then(results => {
+                  res.json({ subjectUpdatedID: id });
+                })
+                .catch(e => {
+                  throw e;
+                });
+            } else {
+              return res.status(401).json({
+                msg: `Error!`
+              });
+            }
           }
         })
         .catch(e => {

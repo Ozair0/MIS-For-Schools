@@ -8,6 +8,83 @@ const auth = require("../middleware/auth");
 const DB = require("../../config/db");
 const multer = require("multer");
 const path = require("path");
+
+// @route   GET api/student/promotallstudents
+// @desc   Promote All Eligible Students To Next Grade
+// @access  Private
+router.get("/promotallstudents", (req, res) => {
+  try {
+    DB.query(
+      "select * from subjects_thought_by_teachers where active=true and ended=false"
+    )
+      .then(results => {
+        if (results.rows.length > 0) {
+          res.status(400).json({ msg: "Some classes are still active!" });
+        } else {
+          DB.query(`select * from students`)
+            .then(result => {
+              let stuData = [];
+              if (result.rows.length > 0) {
+                result.rows.map(user => {
+                  DB.query(
+                    `select * from subjects where gradeid=${user.gradeid};`
+                  ).then(result2 => {
+                    result2.rows.map(subj => {
+                      DB.query(
+                        `
+            select stbt.id, s.name, g.gradenumber
+            from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid inner join grade g on g.id = s.gradeid
+            where s.gradeid = ${user.gradeid} and stbt.subjectid = ${subj.id} and stbt.active=false and stbt.ended=false order by stbt.id;`
+                      ).then(async result3 => {
+                        let bre = false;
+                        for (let i = 0; i < result3.rows.length; i++) {
+                          await DB.query(
+                            `select id from subjectselected where subjectid=${result3.rows[i].id} and studentid=${user.id}`
+                          ).then(result4 => {
+                            if (result4.rows.length > 0) {
+                              bre = true;
+                            }
+                          });
+                          if (bre === true) {
+                            break;
+                          } else {
+                            await DB.query(
+                              `select count(id) from subjectselected where subjectid=${result3.rows[i].id}`
+                            ).then(async result4 => {
+                              if (parseInt(result4.rows[0].count) <= 19) {
+                                await DB.query(
+                                  `insert into subjectselected (studentid, subjectid, dateselected, active) values ($1,$2,current_timestamp,false);`,
+                                  [user.id, result3.rows[i].id]
+                                );
+                                bre = true;
+                              }
+                            });
+                          }
+                        }
+                      });
+                    });
+                  });
+                });
+                res.status(200).json(stuData);
+              } else {
+                res.status(200).json(stuData);
+              }
+            })
+            .catch(e => {
+              console.log(e);
+              res.status(400).json({ e });
+            });
+        }
+      })
+      .catch(e => {
+        console.log(e);
+        res.status(400).json({ e });
+      });
+  } catch (e) {
+    res.status(400).json({ e });
+  }
+});
+
 // @route   POST api/student/
 // @desc    Get Student Total
 // @access  Public

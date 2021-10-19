@@ -266,7 +266,12 @@ export default {
       } else if (this.classes.length > 0 && !this.allowCreate) {
         this.classes.map(subject => {
           const data = {
-            id: subject.id,
+            id:
+              subject.id === null ||
+              subject.id === "" ||
+              subject.id === undefined
+                ? 0
+                : subject.id,
             subjectid: subject.subjectid,
             teacherid: subject.teacher[0].id,
             classroomid: subject.room[0].id,

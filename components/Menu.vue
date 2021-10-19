@@ -204,7 +204,7 @@ export default {
         0px 0px 1px rgba(0, 0, 0, 0.04);
       border-radius: 20px;
       margin-left: 400px;
-      margin-top: 150px;
+      margin-top: 200px;
       width: 150px;
       z-index: 999;
 
@@ -215,7 +215,6 @@ export default {
 
     .news_events {
       height: 70px !important;
-
       &:hover ~ .Drop_Down_Menu_2 {
         display: block;
       }
