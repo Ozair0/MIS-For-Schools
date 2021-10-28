@@ -4,7 +4,11 @@
       <p class="Teacher_Title">All Teachers</p>
       <div class="Teacher_Left">
         <div class="btn-group">
-          <button type="button" class="btn btn-info">
+          <button
+            type="button"
+            @click.prevent="printToPdf"
+            class="btn btn-info"
+          >
             Generate Report
           </button>
         </div>
@@ -101,7 +105,8 @@
 
 <script>
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 export default {
   computed: {
     faUserPlus() {
@@ -121,6 +126,30 @@ export default {
   methods: {
     AddTeacher() {
       this.$router.push("teacher/add_teacher");
+    },
+    printToPdf() {
+      var pdf = new jsPDF();
+      pdf.autoTable({
+        body: [
+          ...this.teachers.map(item => {
+            return {
+              id: item.userid,
+              fullname: item.name + " " + item.lastname,
+              school: item.school,
+              dob: new Date(item.dob).toLocaleDateString("en-US"),
+              dep: item.dep
+            };
+          })
+        ],
+        columns: [
+          { header: "ID", dataKey: "id" },
+          { header: "Full Name", dataKey: "fullname" },
+          { header: "School", dataKey: "school" },
+          { header: "DOB", dataKey: "dob" },
+          { header: "Department", dataKey: "dep" }
+        ]
+      });
+      pdf.save(`T ${new Date()}.pdf`);
     }
   }
 };

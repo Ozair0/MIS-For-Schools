@@ -7,7 +7,7 @@ const config = require("config");
 const DB = require("../../config/db");
 const auth = require("../middleware/auth");
 
-// @route   POST api/studentsattendance/getStudentsAttendanceBySubjectID
+// @route   POST api/studentattendance/getStudentsAttendanceBySubjectID
 // @desc    Get StudentsAttendance
 // @access  Public
 
@@ -34,9 +34,51 @@ router.post(
     }
     const { adate, subjectid } = req.body;
     try {
-      // Check student already in database
       await DB.query(
         `select s2.id as id, s2.name, s2.userid, s3.adate,s3.present,s.id as subjectid from subjectselected s inner join students s2 on s.studentid = s2.id left join studentsattendance s3 on s.id = s3.subjectid and s3.adate = '${adate}' where s.subjectid = ${subjectid} and s.active = true;`
+      )
+        .then(results => {
+          res.status(200).json(results.rows);
+        })
+        .catch(e => {
+          res.status(401).json({ msg: "Database error!" });
+        });
+    } catch (e) {
+      console.error(e.message);
+      res.status(500).send("Server Error");
+    }
+  }
+);
+
+// @route   POST api/studentattendance/attbyidsubjid
+// @desc    Get StudentsAttendance By Student ID and Subject ID
+// @access  Public
+
+router.post(
+  "/attbyidsubjid",
+  [
+    check("studentid", "StudentID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isInt(),
+    check("subjectid", "SubjectID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isInt()
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { studentid, subjectid } = req.body;
+    try {
+      await DB.query(
+        `select s2.id as id, s2.name, s2.userid, s3.adate,s3.present,s.id as subjectid from subjectselected s inner join students s2 on s.studentid = s2.id left join studentsattendance s3 on s.id = s3.subjectid where s.subjectid = ${subjectid} and s.studentid = '${studentid}';`
       )
         .then(results => {
           res.status(200).json(results.rows);
@@ -87,7 +129,7 @@ router.post(
   }
 );
 
-// @route   POST api/studentsattendance/new
+// @route   POST api/studentattendance/new
 // @desc    Register StudentsAttendance
 // @access  Public
 

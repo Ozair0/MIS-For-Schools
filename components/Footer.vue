@@ -38,27 +38,11 @@
       <div class="Footer_Links">
         <div class="Footer_Links_Home">
           <p>Home</p>
-          <a href="#">Home</a>
-          <a href="#">Services</a>
-          <a href="#">About</a>
-          <a href="#">Offers</a>
-          <a href="#">Help Desk</a>
-        </div>
-        <div class="Footer_Links_Services">
-          <p>Services</p>
-          <a href="#">Home</a>
-          <a href="#">Services</a>
-          <a href="#">About</a>
-          <a href="#">Offers</a>
-          <a href="#">Help Desk</a>
-        </div>
-        <div class="Footer_Links_About">
-          <p>About</p>
-          <a href="#">Home</a>
-          <a href="#">Services</a>
-          <a href="#">About</a>
-          <a href="#">Offers</a>
-          <a href="#">Help Desk</a>
+          <nuxt-link to="/">Home</nuxt-link>
+          <nuxt-link to="/Admissions">Admissions</nuxt-link>
+          <nuxt-link to="/Our-team">Our Team</nuxt-link>
+          <nuxt-link to="/Contact_us">Contact Us</nuxt-link>
+          <nuxt-link to="/login/3">Login</nuxt-link>
         </div>
         <!--        <div class="Footer_Links_Offers">-->
         <!--          <p>Offers</p>-->

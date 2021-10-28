@@ -1,14 +1,11 @@
 <template>
   <div class="Student_Content">
-    <button class="btn btn-primary Admission_BTN shadow">
-      New Admission
-    </button>
     <div class="Admin_Cards">
       <div class="Admin_Cards_F">
-        <div class="small-box bg-gradient-success card_C shadow">
+        <div class="small-box bg-gradient-danger card_C shadow">
           <div class="inner">
             <h3>{{ totalStudents }}</h3>
-            <p>Students In School</p>
+            <p>#Of Days Absent In School</p>
           </div>
           <div class="icon">
             <fa :icon="faUserGraduate" />
@@ -22,68 +19,10 @@
             <h3>
               {{ totalTeachers }}
             </h3>
-            <p>Teachers In School</p>
+            <p>Subject Currently Learning</p>
           </div>
           <div class="icon">
             <fa :icon="faGraduationCap" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-        <div class="small-box bg-gradient-info card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ totalEmployees }}
-            </h3>
-            <p>Employees In School</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faUserPlus" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-      </div>
-      <div class="Admin_Cards_S">
-        <div class="small-box bg-gradient-primary card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
-            </h3>
-            <p>Male Students In School</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faMale" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-        <div class="small-box bg-gradient-olive card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
-            </h3>
-            <p>Female Students In School</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faFemale" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-        <div class="small-box bg-gradient-danger card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
-            </h3>
-            <p>Total Income In This Month</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faMoneyCheck" />
           </div>
           <a href="#" class="small-box-footer">
             View all <fa :icon="faArrowCircleRight" />
@@ -250,7 +189,7 @@ export default {
     flex-direction: column;
     .Admin_Cards_F {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       .card_C {
         //width: 400px;
         flex: 0 0 30%;

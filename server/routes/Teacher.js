@@ -27,13 +27,101 @@ router.get("/allinfo", (req, res) => {
   }
 });
 
+// @route   POST api/teacher/byid
+// @desc    Get Parent Info By ID
+// @access  Public
+
+router.post(
+  "/byid",
+  [
+    check("id", "ID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isInt()
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ msg: errors.array() });
+    }
+    const { id } = req.body;
+    try {
+      DB.query(
+        `select teachers.name, lastname,userid,profileimage,address, concat(salary,' ',salarytype) as salary, d.name as department from teachers inner join department d on teachers.departmentid = d.id where teachers.id=${id};`
+      )
+        .then(result => {
+          res.status(200).json(result.rows[0]);
+        })
+        .catch(e => {
+          console.log(e);
+          res.status(400).json({ msg: "Database error!" });
+        });
+    } catch (e) {
+      res.status(400).json({ e });
+    }
+  }
+);
+
+// @route   POST api/teacher/byidnl
+// @desc    Get Student Info By ID,name or lastname
+// @access  Public
+
+router.post(
+  "/byidnl",
+  [
+    check("id", "ID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isString(),
+    check("name", "Name is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isString(),
+    check("lastname", "LastName is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isString()
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ msg: errors.array() });
+    }
+    const { id, name, lastname } = req.body;
+    try {
+      DB.query(
+        `select id ,userid , name,lastname ,profileimage from teachers where userid='${id}' or lower(name) like lower('${
+          name === "null" ? "" : "%" + name + "%"
+        }') or lower(lastname) like lower('${
+          lastname === "null" ? "" : "%" + lastname + "%"
+        }');`
+      )
+        .then(result => {
+          res.status(200).json(result.rows);
+        })
+        .catch(e => {
+          console.log(e);
+          res.status(400).json({ msg: "Database error!" });
+        });
+    } catch (e) {
+      res.status(400).json({ e });
+    }
+  }
+);
 
 // @route   GET api/teacher/bygrade
 // @desc    Get All Teachers By Grade
 // @access  Public
 router.get("/bygrade", (req, res) => {
-  if(req.query.id) {
-
+  if (req.query.id) {
     try {
       DB.query(
         `select id,name,lastname from teachers where gradeid = ${req.query.id}`
@@ -43,12 +131,12 @@ router.get("/bygrade", (req, res) => {
         })
         .catch(e => {
           console.log(e);
-          res.status(400).json({e});
+          res.status(400).json({ e });
         });
     } catch (e) {
-      res.status(400).json({e});
+      res.status(400).json({ e });
     }
-  }else{
+  } else {
     res.status(401).json({
       msg: [{ msg: "ID Required" }]
     });

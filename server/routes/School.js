@@ -7,7 +7,7 @@ const DB = require("../../config/db");
 // @access  Public
 router.get("/allinfo", (req, res) => {
   try {
-    DB.query(`select id,schoolname from schools;`)
+    DB.query(`select * from schools;`)
       .then(result => {
         res.status(200).json(result.rows);
       })

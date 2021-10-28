@@ -1,6 +1,9 @@
 <template>
   <div class="Admin_Content">
-    <button class="btn btn-primary Admission_BTN shadow">
+    <button
+      @click.prevent="AddStudent"
+      class="btn btn-primary Admission_BTN shadow"
+    >
       New Admission
     </button>
     <div class="Admin_Cards">
@@ -46,56 +49,12 @@
           </a>
         </div>
       </div>
-      <div class="Admin_Cards_S">
-        <div class="small-box bg-gradient-primary card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
-            </h3>
-            <p>Male Students In School</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faMale" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-        <div class="small-box bg-gradient-olive card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
-            </h3>
-            <p>Female Students In School</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faFemale" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-        <div class="small-box bg-gradient-danger card_C shadow">
-          <div class="inner">
-            <h3>
-              {{ parseInt(totalStudents) + Math.floor(Math.random() * 6) + 1 }}
-            </h3>
-            <p>Total Income In This Month</p>
-          </div>
-          <div class="icon">
-            <fa :icon="faMoneyCheck" />
-          </div>
-          <a href="#" class="small-box-footer">
-            View all <fa :icon="faArrowCircleRight" />
-          </a>
-        </div>
-      </div>
     </div>
     <div class="Admin_Cards_half">
       <div class="info-box bg-gradient-primary Half_P_Card shadow">
         <div class="info-box-content">
           <h3 class="info-box-text">Events</h3>
-          <span class="info-box-number">Total: 410</span>
+          <span class="info-box-number">Total: 19</span>
           <div class="card bg-gradient-secondary my-2">
             <div class="card-header">
               <p class="card-title">
@@ -137,7 +96,7 @@
       <div class="info-box bg-gradient-secondary Half_P_Card shadow">
         <div class="info-box-content">
           <h3 class="info-box-text">Notice Board</h3>
-          <span class="info-box-number">Total: 410</span>
+          <span class="info-box-number">Total: 9</span>
           <div class="card bg-gradient-primary my-2">
             <div class="card-header">
               <p class="card-title">
@@ -219,6 +178,11 @@ export default {
     return {
       // totalStudents: 0
     };
+  },
+  methods: {
+    AddStudent() {
+      this.$router.push("students/add_student");
+    }
   },
   async asyncData(ctx) {
     const total = await ctx.$axios.get("/api/student/");

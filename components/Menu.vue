@@ -67,16 +67,33 @@
         <div class="Drop_Down_Menu_List">
           <div class="Drop_Down_Menu_List_Item D_Active">
             |
-            <NuxtLink to="/Login/1" class="D_A_Active">Students</NuxtLink>
+            <NuxtLink
+              v-if="this.$auth.loggedIn"
+              to="/student_portal"
+              class="D_A_Active"
+              >Students</NuxtLink
+            >
+            <NuxtLink v-else to="/Login/1" class="D_A_Active"
+              >Students</NuxtLink
+            >
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="/Login/4">Parents</NuxtLink>
+            |
+            <NuxtLink v-if="this.$auth.loggedIn" to="/parent_portal"
+              >Parents</NuxtLink
+            >
+            <NuxtLink v-else to="/Login/4">Parents</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="/Login/2">Teachers</NuxtLink>
+            |
+            <NuxtLink v-if="this.$auth.loggedIn" to="/teacher_portal"
+              >Teachers</NuxtLink
+            >
+            <NuxtLink v-else to="/Login/2">Teachers</NuxtLink>
           </div>
           <div class="Drop_Down_Menu_List_Item">
-            | <NuxtLink to="/Login/3">Staff</NuxtLink>
+            | <NuxtLink v-if="this.$auth.loggedIn" to="/admin">Staff</NuxtLink>
+            <NuxtLink v-else to="/Login/3">Staff</NuxtLink>
           </div>
         </div>
       </div>
@@ -96,7 +113,7 @@
           </a>
           <nuxt-link to="/Learning">learning</nuxt-link>
           <nuxt-link to="/Admissions">Admissions</nuxt-link>
-          <nuxt-link to="Our-team">Our Team</nuxt-link>
+          <nuxt-link to="/Our-team">Our Team</nuxt-link>
           <nuxt-link to="#"
             >Portals
             <fa :icon="faAngleDown" color="white" />

@@ -81,7 +81,14 @@ module.exports = {
     "@nuxt/image",
     "@nuxtjs/axios",
     "@nuxtjs/auth-next",
-    "vue-sweetalert2/nuxt"
+    "jspdf",
+    "vue-sweetalert2/nuxt",
+    [
+      "nuxt-vuex-localstorage",
+      {
+        sessionStorage: ["menuList", "sidebar", "teacherPortalMenuList"]
+      }
+    ]
   ],
   auth: {
     strategies: {

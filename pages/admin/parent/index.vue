@@ -4,7 +4,11 @@
       <p class="Parent_Title">All Parents</p>
       <div class="Parent_Left">
         <div class="btn-group">
-          <button type="button" class="btn btn-info">
+          <button
+            @click.prevent="printToPdf"
+            type="button"
+            class="btn btn-info"
+          >
             Generate Report
           </button>
         </div>
@@ -43,8 +47,6 @@
                 </td>
                 <td>
                   <a> {{ parent.name }} {{ parent.lastname }} </a>
-                  <br />
-                  <small> DOB: {{ parent.dob }} </small>
                 </td>
                 <td class="project-profile d-flex justify-content-center">
                   <nuxt-img
@@ -83,6 +85,8 @@
 
 <script>
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 
 export default {
   computed: {
@@ -103,6 +107,26 @@ export default {
   methods: {
     AddParent() {
       this.$router.push("parent/add_parent");
+    },
+    printToPdf() {
+      var pdf = new jsPDF();
+      pdf.autoTable({
+        body: [
+          ...this.parents.map(item => {
+            return {
+              id: item.userid,
+              fullname: item.name + " " + item.lastname,
+              address: item.address
+            };
+          })
+        ],
+        columns: [
+          { header: "ID", dataKey: "id" },
+          { header: "Full Name", dataKey: "fullname" },
+          { header: "Address", dataKey: "address" }
+        ]
+      });
+      pdf.save(`P ${new Date()}.pdf`);
     }
   }
 };

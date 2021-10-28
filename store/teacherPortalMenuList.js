@@ -11,7 +11,13 @@ import {
 
 export const state = () => ({
   menuItems: [
-    { title: "Home", active: true, subMenu: [], page: "/teacher_portal", icon: faHome },
+    {
+      title: "Home",
+      active: true,
+      subMenu: [],
+      page: "/teacher_portal",
+      icon: faHome
+    },
     {
       title: "Subjects",
       active: false,
@@ -22,13 +28,27 @@ export const state = () => ({
         //   page: "/add_student"
         // },
         {
-          title: "Upload Marks",
+          title: "Subjects Teaching",
           active: false,
-          page: "/upload_marks"
+          page: "/"
         }
       ],
       page: "/teacher_portal/subjects",
       icon: faUserGraduate
+    },
+    {
+      title: "Marks",
+      active: false,
+      subMenu: [],
+      page: "/teacher_portal/marks",
+      icon: faChalkboard
+    },
+    {
+      title: "Profile",
+      active: false,
+      subMenu: [],
+      page: "/teacher_portal/profile",
+      icon: faUserTie
     }
   ]
 });

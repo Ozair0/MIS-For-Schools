@@ -4,7 +4,11 @@
       <p class="Class_Title">All Classrooms</p>
       <div class="Class_Left">
         <div class="btn-group">
-          <button type="button" class="btn btn-info">
+          <button
+            @click.prevent="printToPdf"
+            type="button"
+            class="btn btn-info"
+          >
             Generate Report
           </button>
         </div>
@@ -63,7 +67,8 @@
 
 <script>
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 export default {
   computed: {
     faUserPlus() {
@@ -83,6 +88,20 @@ export default {
   methods: {
     AddClass() {
       this.$router.push("classes/create_class");
+    },
+    printToPdf() {
+      var pdf = new jsPDF();
+      pdf.autoTable({
+        body: [
+          ...this.classrooms.map(item => {
+            return {
+              roomnumber: item.roomnumber
+            };
+          })
+        ],
+        columns: [{ header: "Classrooms", dataKey: "roomnumber" }]
+      });
+      pdf.save(`C ${new Date()}.pdf`);
     }
   }
 };

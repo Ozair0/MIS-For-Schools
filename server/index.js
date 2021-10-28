@@ -45,6 +45,7 @@ async function start() {
   app.use("/api/fee", require("./routes/Fee"));
   app.use("/api/time", require("./routes/Times"));
   app.use("/api/school", require("./routes/School"));
+  app.use("/api/marks", require("./routes/marks"));
 
   // Give nuxt middleware to express
   app.use(nuxt.render);

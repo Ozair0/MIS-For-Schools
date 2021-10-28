@@ -15,12 +15,65 @@ const path = require("path");
 router.get("/generatepasswordhash", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
-    let password = await bcrypt.hash('admin', salt);
+    let password = await bcrypt.hash("admin", salt);
     res.status(200).json({ PasswordHash: password });
   } catch (e) {
     res.status(400).json({ e });
   }
 });
+
+// @route   POST api/teacher/byidnl
+// @desc    Get Student Info By ID,name or lastname
+// @access  Public
+
+router.post(
+  "/byidnl",
+  [
+    check("id", "ID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isString(),
+    check("name", "Name is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isString(),
+    check("lastname", "LastName is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isString()
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ msg: errors.array() });
+    }
+    const { id, name, lastname } = req.body;
+    try {
+      DB.query(
+        `select id ,userid , name,lastname ,profileimage from employees where userid='${id}' or lower(name) like lower('${
+          name === "null" ? "" : "%" + name + "%"
+        }') or lower(lastname) like lower('${
+          lastname === "null" ? "" : "%" + lastname + "%"
+        }');`
+      )
+        .then(result => {
+          res.status(200).json(result.rows);
+        })
+        .catch(e => {
+          console.log(e);
+          res.status(400).json({ msg: "Database error!" });
+        });
+    } catch (e) {
+      res.status(400).json({ e });
+    }
+  }
+);
 
 // @route   GET api/employee/
 // @desc    Get Employee Total
@@ -46,7 +99,7 @@ router.get("/", (req, res) => {
 router.get("/all", (req, res) => {
   try {
     DB.query(
-      `select e.id,e.schoolid,e.departmentid,e.userid,e.name,e.lastname,e.profileimage,e.address, s.schoolname as school,d.name as dep
+      `select e.id,e.schoolid,e.dob,e.departmentid,e.userid,e.name,e.lastname,e.profileimage,e.address, s.schoolname as school,d.name as dep
 from employees e inner join department d on e.departmentid = d.id inner join schools s on e.schoolid = s.id where e.isadmin != true;`
     )
       .then(result => {

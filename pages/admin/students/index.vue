@@ -4,28 +4,12 @@
       <p class="Student_Title">All Students</p>
       <div class="Student_Left">
         <div :class="`btn-group${showDropDown ? ' show' : ''}`">
-          <button type="button" class="btn btn-info">
-            Generate Report For: 2017
-          </button>
           <button
+            @click.prevent="printToPdf"
             type="button"
-            class="btn btn-info dropdown-toggle dropdown-icon"
-            data-toggle="dropdown"
-            :aria-expanded="`${showDropDown ? 'true' : 'false'}`"
-            @click.prevent="toggleDrop()"
+            class="btn btn-info"
           >
-            <span class="sr-only">Toggle Dropdown</span>
-            <div
-              :class="`dropdown-menu${showDropDown ? ' show' : ''}`"
-              role="menu"
-              x-placement="bottom-start"
-            >
-              <a class="dropdown-item" href="#">2021</a>
-              <a class="dropdown-item" href="#">2020</a>
-              <a class="dropdown-item" href="#">2019</a>
-              <a class="dropdown-item" href="#">2018</a>
-              <a class="dropdown-item" href="#">2017</a>
-            </div>
+            Generate Report
           </button>
         </div>
         <button
@@ -41,7 +25,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-body p-0" style="display: block;">
-          <table class="table table-striped projects">
+          <table id="table_users" class="table table-striped projects">
             <thead>
               <tr>
                 <th>
@@ -131,7 +115,8 @@
 
 <script>
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 export default {
   computed: {
     faUserPlus() {
@@ -155,6 +140,30 @@ export default {
     },
     AddStudent() {
       this.$router.push("students/add_student");
+    },
+    printToPdf() {
+      var pdf = new jsPDF();
+      pdf.autoTable({
+        body: [
+          ...this.students.map(item => {
+            return {
+              id: item.userid,
+              fullname: item.name + " " + item.lastname,
+              parent: item.parent,
+              grade: item.gradenumber,
+              joindate: new Date(item.datejoined).toLocaleDateString("en-US")
+            };
+          })
+        ],
+        columns: [
+          { header: "ID", dataKey: "id" },
+          { header: "Full Name", dataKey: "fullname" },
+          { header: "Parent", dataKey: "parent" },
+          { header: "Grade", dataKey: "grade" },
+          { header: "Joined Date", dataKey: "joindate" }
+        ]
+      });
+      pdf.save(`S ${new Date()}.pdf`);
     }
   }
 };

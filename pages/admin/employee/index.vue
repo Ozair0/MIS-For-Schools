@@ -4,7 +4,11 @@
       <p class="Employee_Title">All Employees</p>
       <div class="Employee_Left">
         <div class="btn-group">
-          <button type="button" class="btn btn-info">
+          <button
+            @click.prevent="printToPdf"
+            type="button"
+            class="btn btn-info"
+          >
             Generate Report
           </button>
         </div>
@@ -50,7 +54,10 @@
                 <td>
                   <a> {{ employee.name }} {{ employee.lastname }} </a>
                   <br />
-                  <small> DOB: {{ employee.dob }} </small>
+                  <small>
+                    DOB:
+                    {{ new Date(employee.dob).toLocaleDateString("en-US") }}
+                  </small>
                 </td>
                 <td>
                   <a :href="`/school/${employee.schoolid}`">{{
@@ -99,7 +106,8 @@
 
 <script>
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 export default {
   computed: {
     faUserPlus() {
@@ -119,6 +127,30 @@ export default {
   methods: {
     AddEmployee() {
       this.$router.push("employee/add_employee");
+    },
+    printToPdf() {
+      var pdf = new jsPDF();
+      pdf.autoTable({
+        body: [
+          ...this.employees.map(item => {
+            return {
+              id: item.userid,
+              fullname: item.name + " " + item.lastname,
+              school: item.school,
+              dob: new Date(item.dob).toLocaleDateString("en-US"),
+              dep: item.dep
+            };
+          })
+        ],
+        columns: [
+          { header: "ID", dataKey: "id" },
+          { header: "Full Name", dataKey: "fullname" },
+          { header: "School", dataKey: "school" },
+          { header: "DOB", dataKey: "dob" },
+          { header: "Department", dataKey: "dep" }
+        ]
+      });
+      pdf.save(`E ${new Date()}.pdf`);
     }
   }
 };

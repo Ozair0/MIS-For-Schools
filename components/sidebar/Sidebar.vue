@@ -30,7 +30,9 @@
         />
       </div>
       <div class="info ml-4">
-        <a href="#" class="d-block">Admin</a>
+        <a href="#" class="d-block"
+          >{{ this.$auth.user[0].name }} {{ this.$auth.user[0].lastname }}</a
+        >
       </div>
     </div>
     <ul class="nav nav-pills flex-column mb-5">
@@ -79,6 +81,10 @@ export default {
     menuItems() {
       if (this.$route.path.toString().includes("teacher_portal")) {
         return this.$store.state.teacherPortalMenuList.menuItems;
+      } else if (this.$route.path.toString().includes("student_portal")) {
+        return this.$store.state.studentMenuList.menuItems;
+      } else if (this.$route.path.toString().includes("parent_portal")) {
+        return this.$store.state.parentMenuList.menuItems;
       } else {
         return this.$store.state.menuList.menuItems;
       }

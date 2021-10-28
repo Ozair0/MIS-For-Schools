@@ -44,6 +44,42 @@ router.get("/allinfo", (req, res) => {
     res.status(400).json({ e });
   }
 });
+
+// @route   POST api/parent/byid
+// @desc    Get Parent Info By ID
+// @access  Public
+
+router.post(
+  "/byid",
+  [
+    check("id", "ID is required!")
+      .not()
+      .bail()
+      .isEmpty()
+      .bail()
+      .isInt()
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ msg: errors.array() });
+    }
+    const { id } = req.body;
+    try {
+      DB.query(`select * from parents where id=${id};`)
+        .then(result => {
+          res.status(200).json(result.rows[0]);
+        })
+        .catch(e => {
+          console.log(e);
+          res.status(400).json({ msg: "Database error!" });
+        });
+    } catch (e) {
+      res.status(400).json({ e });
+    }
+  }
+);
+
 // @route   POST api/parent/new
 // @desc    Register Parent
 // @access  Public

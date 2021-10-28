@@ -6,7 +6,16 @@ import {
   faUsers,
   faUserTie,
   faBuilding,
-  faChalkboard
+  faChalkboard,
+  faGraduationCap,
+  faBookOpen,
+  faWallet,
+  faBookReader,
+  faChartBar,
+  faSearch,
+  faCalendarWeek,
+  faUserTag,
+  faBus
 } from "@fortawesome/free-solid-svg-icons";
 
 export const state = () => ({
@@ -47,70 +56,43 @@ export const state = () => ({
         {
           title: "Promote Student",
           active: false,
-          page: "/add_student"
+          page: "/promote_student"
         },
         {
           title: "Promote All Student",
           active: false,
-          page: "/add_student"
+          page: "/promote_all_students"
         }
       ],
       page: "/admin/students",
       icon: faUserGraduate
     },
     {
-      title: "Departments Management",
+      title: "Attendance Management",
       active: false,
-      subMenu: [
-        {
-          title: "Add Department",
-          active: false,
-          page: "/add_department"
-        }
-      ],
-      page: "/admin/department",
-      icon: faBuilding
+      subMenu: [],
+      page: "/admin/attendance",
+      icon: faGraduationCap
     },
+    // {
+    //   title: "Fees Management",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faWallet
+    // },
     {
-      title: "Teachers Management",
+      title: "Exams Management",
       active: false,
-      subMenu: [
-        {
-          title: "Add Teacher",
-          active: false,
-          page: "/add_teacher"
-        },
-        {
-          title: "Promote Teacher",
-          active: false,
-          page: "/add_teacher"
-        }
-      ],
-      page: "/admin/teacher",
-      icon: faChalkboardTeacher
-    },
-    {
-      title: "Employee Management",
-      active: false,
-      subMenu: [
-        { title: "Add Employee", active: false, page: "/add_employee" },
-        { title: "Promote Employee", active: false, page: "/add_employee" }
-      ],
-      page: "/admin/employee",
-      icon: faUserTie
-    },
-    {
-      title: "Parents Management",
-      active: false,
-      subMenu: [
-        {
-          title: "Add Parent",
-          active: false,
-          page: "/add_parent"
-        }
-      ],
-      page: "/admin/parent",
-      icon: faUsers
+      subMenu: [],
+      page: "/admin/exams",
+      icon: faBookReader
     },
     {
       title: "Class Management",
@@ -157,7 +139,133 @@ export const state = () => ({
       ],
       page: "/admin/subjects",
       icon: faChalkboard
+    },
+    // {
+    //   title: "Transports Management",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faBus
+    // },
+    // {
+    //   title: "Library Management",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faBookOpen
+    // },
+    {
+      title: "Departments",
+      active: false,
+      subMenu: [
+        {
+          title: "Add Department",
+          active: false,
+          page: "/add_department"
+        }
+      ],
+      page: "/admin/department",
+      icon: faBuilding
+    },
+    {
+      title: "Teachers Management",
+      active: false,
+      subMenu: [
+        {
+          title: "Add Teacher",
+          active: false,
+          page: "/add_teacher"
+        }
+      ],
+      page: "/admin/teacher",
+      icon: faChalkboardTeacher
+    },
+    {
+      title: "Employee Management",
+      active: false,
+      subMenu: [
+        { title: "Add Employee", active: false, page: "/add_employee" }
+      ],
+      page: "/admin/employee",
+      icon: faUserTie
+    },
+    {
+      title: "Parents Management",
+      active: false,
+      subMenu: [
+        {
+          title: "Add Parent",
+          active: false,
+          page: "/add_parent"
+        }
+      ],
+      page: "/admin/parent",
+      icon: faUsers
     }
+    // {
+    //   title: "Teacher Evaluation",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faSearch
+    // },
+    // {
+    //   title: "HR & Payroll",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faChartBar
+    // },
+    // {
+    //   title: "Timetable Management",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faCalendarWeek
+    // },
+    // {
+    //   title: "User Roles & Permissions",
+    //   active: false,
+    //   subMenu: [
+    //     {
+    //       title: "Add Parent",
+    //       active: false,
+    //       page: "/add_parent"
+    //     }
+    //   ],
+    //   page: "/admin/parent",
+    //   icon: faUserTag
+    // }
   ]
 });
 

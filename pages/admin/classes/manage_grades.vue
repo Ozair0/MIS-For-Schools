@@ -4,7 +4,11 @@
       <p class="Grade_Title">All Grades</p>
       <div class="Grade_Left">
         <div class="btn-group">
-          <button type="button" class="btn btn-info">
+          <button
+            @click.prevent="printToPdf"
+            type="button"
+            class="btn btn-info"
+          >
             Generate Report
           </button>
         </div>
@@ -62,7 +66,8 @@
 
 <script>
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 export default {
   computed: {
     faUserPlus() {
@@ -82,6 +87,20 @@ export default {
   methods: {
     AddGrade() {
       this.$router.push("create_grade");
+    },
+    printToPdf() {
+      var pdf = new jsPDF();
+      pdf.autoTable({
+        body: [
+          ...this.grades.map(item => {
+            return {
+              gradenumber: item.gradenumber
+            };
+          })
+        ],
+        columns: [{ header: "Grade", dataKey: "gradenumber" }]
+      });
+      pdf.save(`G ${new Date()}.pdf`);
     }
   }
 };
