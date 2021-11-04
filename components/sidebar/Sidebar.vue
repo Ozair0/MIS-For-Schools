@@ -22,7 +22,17 @@
     <div class="user-panel pb-1 mb-3 d-flex" style="overflow:unset !important;">
       <div class="image">
         <nuxt-img
-          src="/OurTeam/Naseerullah.png"
+          :src="
+            `/uploads/${
+              this.$auth.user[0].type == 1
+                ? 'Students'
+                : this.$auth.user[0].type == 2
+                ? 'Teachers'
+                : this.$auth.user[0].type == 4
+                ? 'Parents'
+                : 'Employees'
+            }/${this.$auth.user[0].profileimage}`
+          "
           width="200"
           height="200"
           class="img-circle elevation-2"

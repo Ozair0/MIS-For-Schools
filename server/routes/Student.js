@@ -308,7 +308,7 @@ router.post(
 router.get("/promotallstudents", (req, res) => {
   try {
     DB.query(
-      "select * from subjects_thought_by_teachers where active=true and ended=false"
+      "select * from subjects_thought_by_teachers where active=false and ended=false"
     )
       .then(results => {
         if (results.rows.length > 0) {
@@ -327,7 +327,7 @@ router.get("/promotallstudents", (req, res) => {
                         `
             select stbt.id, s.name, g.gradenumber
             from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid inner join grade g on g.id = s.gradeid
-            where s.gradeid = ${user.gradeid} and stbt.subjectid = ${subj.id} and stbt.active=false and stbt.ended=false order by stbt.id;`
+            where s.gradeid = ${user.gradeid} and stbt.subjectid = ${subj.id} and stbt.active=true and stbt.ended=false order by stbt.id;`
                       ).then(async result3 => {
                         let bre = false;
                         for (let i = 0; i < result3.rows.length; i++) {
@@ -346,7 +346,7 @@ router.get("/promotallstudents", (req, res) => {
                             ).then(async result4 => {
                               if (parseInt(result4.rows[0].count) <= 19) {
                                 await DB.query(
-                                  `insert into subjectselected (studentid, subjectid, dateselected, active) values ($1,$2,current_timestamp,false);`,
+                                  `insert into subjectselected (studentid, subjectid, dateselected, active) values ($1,$2,current_timestamp,true);`,
                                   [user.id, result3.rows[i].id]
                                 );
                                 bre = true;

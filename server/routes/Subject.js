@@ -260,7 +260,7 @@ router.get("/subjectbygrade", async (req, res) => {
     try {
       // Check student already in database
       await DB.query(
-        `select s.id,stbt.id as ssid,t.id as tid,t.name as tname,t.lastname tlastname, c.id as cid, c.roomnumber as roomnumber, s2.id as sid,s2.stime as stime,e.id as eid, e.etime as etime from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid inner join teachers t on t.id = stbt.teacherid inner join classroom c on c.id = stbt.classroomid inner join starttime s2 on s2.id = stbt.start inner join endtime e on e.id = stbt."end" where s.gradeid = ${req.query.gradeid} and stbt.active = false and stbt.ended=false order by stbt.id;`
+        `select s.id,stbt.id as ssid,t.id as tid,t.name as tname,t.lastname tlastname, c.id as cid, c.roomnumber as roomnumber, s2.id as sid,s2.stime as stime,e.id as eid, e.etime as etime from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid inner join teachers t on t.id = stbt.teacherid inner join classroom c on c.id = stbt.classroomid inner join starttime s2 on s2.id = stbt.start inner join endtime e on e.id = stbt."end" where s.gradeid = ${req.query.gradeid} and stbt.active = true and stbt.ended=false order by stbt.id;`
       )
         .then(results => {
           res.json(results.rows);
@@ -287,7 +287,7 @@ router.get("/subjectgradecheck", async (req, res) => {
     try {
       // Check student already in database
       await DB.query(
-        `select s.id from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid where s.gradeid = ${req.query.gradeid} and stbt.active = false and stbt.ended = false;`
+        `select s.id from subjects s inner join subjects_thought_by_teachers stbt on s.id = stbt.subjectid where s.gradeid = ${req.query.gradeid} and stbt.active = true and stbt.ended = false;`
       )
         .then(results => {
           if (results.rows.length > 0) {
