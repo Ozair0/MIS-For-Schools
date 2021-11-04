@@ -7,7 +7,7 @@ module.exports = {
     }
   },
   head: {
-    title: "KIS",
+    title: "MIS",
     htmlAttrs: {
       lang: "en"
     },

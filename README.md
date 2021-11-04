@@ -1,7 +1,13 @@
 # School MIS & Website
 
-## Build Setup
+## Run & Build Setup
+```bash
+# Create database & Change the database info in following path
+$ config/db.js
 
+# Create database tables using following sql file
+$ config/DatabaseStruc.sql
+```
 ```bash
 # install dependencies
 $ npm install
