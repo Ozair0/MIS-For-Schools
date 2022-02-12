@@ -1,5 +1,8 @@
 # School MIS & Website
 
+## UPDATE!
+### Images Removed
+#### All Images have been removed please add your own images
 ## Run & Build Setup
 ```bash
 # Create database & Change the database info in following path
